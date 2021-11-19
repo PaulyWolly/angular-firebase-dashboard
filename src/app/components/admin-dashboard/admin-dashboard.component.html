@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <button class="pagePosition navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a style="font-size: large;" class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li> -->
+            </ul>
+            <ul class="navbar-nav">
+                <li>
+                    <form style="height: 30px;margin-right: auto" class="d-flex">
+                        <mat-card style="height: 30px;" *ngIf="(afAuth.user | async)">
+                            <mat-icon class="checkCircle">check_circle</mat-icon>
+
+                            <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Logged in as:
+                                <span *ngIf="(user | async)">{{ (user | async)?.displayName }}</span>
+                            </span>
+
+                        </mat-card>
+                        <mat-card *ngIf="!(afAuth.user | async)">
+                            <mat-icon style="position:relative; bottom: 12px;">do_not_disturb</mat-icon>
+                            <span style="position:relative; bottom: 18px; margin-left:10px">User is not logged in</span>
+                        </mat-card>
+                    </form>
+                </li>
+                <!--  <div class="col">
+                    <div ngbDropdown class="d-inline-block">
+                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle
+                            dropdown</button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                            <button ngbDropdownItem>Action - 1</button>
+                            <button ngbDropdownItem>Another Action</button>
+                            <button ngbDropdownItem>Something else is here</button>
+                        </div>
+                    </div>
+                </div> -->
+                <li class="nav-item dropdown">
+                    <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"> Menu </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><button class="dropdown-item" href="#">Action</button></li>
+                        <li><button class="dropdown-item" href="#">Another action</button></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="pagePosition">
+    <button mat-raised-button color="primary" routerLink="/home">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+
+
+    <div *ngIf="(user | async)?.accountType == 'admin'; else notAdmin">
+        hello admin!
+        <br>
+        this is a simple test for admin status. a more rigorous test is to edit the auth.guard.ts file :)
+    </div>
+
+    <ng-template #notAdmin>
+        You are NOT admin
+    </ng-template>
+</section>

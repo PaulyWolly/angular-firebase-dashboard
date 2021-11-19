@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.css';
+
+html, body { height: 100%; }
+
+body {
+    margin: 20px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.spaceBetween {
+    margin-right: 10px;
+}
+
+.pagePosition {
+    position: relative;
+    top:12px;
+}
+
+.checkCircle {
+    position:relative;
+    bottom: 12px;
+    color: green;
+}
