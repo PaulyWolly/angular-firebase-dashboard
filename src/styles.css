@@ -23,3 +23,7 @@ body {
     bottom: 12px;
     color: green;
 }
+
+.logoutPointer {
+    cursor: pointer;
+}

@@ -8,6 +8,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 import { AuthGuard } from './services/auth.guard';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard] },
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   {path: 'forgot-password', component: ForgotPasswordComponent },
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  },
   {path: 'home', component: HomeComponent },
   {path: 'login', component: LoginComponent },
   {path: 'signup', component: SignupComponent },

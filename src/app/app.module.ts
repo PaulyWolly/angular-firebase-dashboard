@@ -56,6 +56,10 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 // import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ToggleDirective } from './directives/toggle/toggle.directive';
+import { AppHighlightDirective } from './directives/app-highlight/app-highlight.directive';
+import { AutoFocus } from './directives/auto-focus/auto-focus.directive';
 
 @NgModule({
     declarations: [
@@ -66,7 +70,11 @@ import { environment } from '../environments/environment';
         ForgotPasswordComponent,
         VerifyEmailComponent,
         DashboardComponent,
-        AdminDashboardComponent
+        AdminDashboardComponent,
+        ProfileComponent,
+        ToggleDirective,
+        AppHighlightDirective,
+        AutoFocus
     ],
     imports: [
         BrowserModule,

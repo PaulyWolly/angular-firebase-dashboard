@@ -1,8 +1,10 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
     selector: 'app-signup',
@@ -14,11 +16,13 @@ export class SignupComponent implements OnInit {
     isProgressVisible: boolean;
     signupForm: FormGroup;
     firebaseErrorMessage: string;
+    user: Observable<any>;
 
     constructor(
       private authService: AuthService,
       private router: Router,
-      private afAuth: AngularFireAuth
+      public afAuth: AngularFireAuth,
+      public firestore: AngularFirestore
       ) {
         this.isProgressVisible = false;
         this.firebaseErrorMessage = '';
@@ -34,6 +38,15 @@ export class SignupComponent implements OnInit {
             'displayName': new FormControl('', Validators.required),
             'email': new FormControl('', [Validators.required, Validators.email]),
             'password': new FormControl('', Validators.required)
+        });
+
+        this.afAuth.authState.subscribe(user => {
+            console.log('Dashboard: user', user);
+
+            if (user) {
+                let emailLower = user.email.toLowerCase();
+                this.user = this.firestore.collection('users').doc(emailLower).valueChanges();
+            }
         });
     }
 
