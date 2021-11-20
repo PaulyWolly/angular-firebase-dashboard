@@ -14,7 +14,7 @@ export class ToggleDirective {
       const parent = this.el.nativeElement.parentNode;
       const span = document.createElement('span');
 
-       span.innerHTML = ' <button  class="btn btn-primary btn-sm toggleShow">show</button>';
+       span.innerHTML = ' <button class="btn btn-primary btn-sm toggleShow">show</button>';
       //span.innerHTML = ' <i class="bi bi-eye-slash">o</i>';
 
       span.addEventListener('click', () => {
