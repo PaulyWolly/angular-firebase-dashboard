@@ -1,3 +1,5 @@
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
@@ -15,11 +17,13 @@ export class LoginComponent implements OnInit {
     isProgressVisible: boolean;
     loginForm: FormGroup;
     firebaseErrorMessage: string;
+    user: Observable<any>;
 
     constructor(
       private authService: AuthService,
       private router: Router,
-      public afAuth: AngularFireAuth
+      public afAuth: AngularFireAuth,
+      public firestore: AngularFirestore
       ) {
 
         this.isProgressVisible = false;
@@ -36,6 +40,15 @@ export class LoginComponent implements OnInit {
         if (this.authService.userLoggedIn) {                       // if the user's logged in, navigate them to the dashboard (NOTE: don't use afAuth.currentUser -- it's never null)
             this.router.navigate(['/dashboard']);
         }
+
+        this.afAuth.authState.subscribe(user => {
+            console.log('Dashboard: user', user);
+
+            if (user) {
+                let emailLower = user.email.toLowerCase();
+                this.user = this.firestore.collection('users').doc(emailLower).valueChanges();
+            }
+        });
     }
 
     loginUser() {

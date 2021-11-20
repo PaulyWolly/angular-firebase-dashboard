@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div> -->
-                <li class="nav-item dropdown">
+                <li *ngIf="(user | async)" class="nav-item dropdown">
                     <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false"> Menu </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
