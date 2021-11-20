@@ -19,8 +19,11 @@
                     <form style="height: 30px;margin-right: auto" class="d-flex">
                         <mat-card style="height: 30px;" *ngIf="(afAuth.user | async)">
                             <mat-icon style="position:relative; bottom: 12px;">check_circle</mat-icon>
-                            <span style="position:relative; bottom: 18px; margin-left:10px">User {{ (afAuth.user |
-                                async)?.displayName }} is logged in</span>
+
+                            <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Logged in as:
+                                <span *ngIf="(user | async)">{{ (user | async)?.displayName }}</span>
+                            </span>
+
                         </mat-card>
                         <mat-card *ngIf="!(afAuth.user | async)">
                             <mat-icon style="position:relative; bottom: 12px;">do_not_disturb</mat-icon>
