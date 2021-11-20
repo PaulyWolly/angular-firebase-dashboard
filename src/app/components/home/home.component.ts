@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
 
     constructor(
       public afAuth: AngularFireAuth,
-      private firestore: AngularFirestore
+      private firestore: AngularFirestore,
+      public route: Router
       ) {
 
     }
@@ -34,5 +36,7 @@ export class HomeComponent implements OnInit {
 
     logout(): void {
         this.afAuth.signOut();
+        window.location.reload();
+
     }
 }

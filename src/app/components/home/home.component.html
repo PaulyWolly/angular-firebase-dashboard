@@ -43,8 +43,8 @@
                     </div>
                 </div> -->
                 <li *ngIf="(user | async)" class="nav-item dropdown">
-                    <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"> Menu </a>
+                    <a *ngIf="(user | async)" ngbDropdownToggle class="nav-link dropdown-toggle" href="#"
+                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Menu </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><button class="dropdown-item" href="#">Action</button></li>
                         <li><button class="dropdown-item" href="#">Another action</button></li>
@@ -64,23 +64,23 @@
 <section>
     <button class="spaceBetween" mat-raised-button color="primary" routerLink="/login">
         <mat-icon>login</mat-icon>
-        <span>Login</span>
+        <span> Login</span>
     </button>
     <button class="spaceBetween" mat-raised-button color="primary" (click)="logout()">
         <mat-icon>logout</mat-icon>
-        <span>Log out</span>
+        <span> Log out</span>
     </button>
     <button class="spaceBetween" mat-raised-button color="primary" routerLink="/signup">
         <mat-icon>person_add</mat-icon>
-        <span>Sign up</span>
+        <span> Sign up</span>
     </button>
     <button class="spaceBetween" mat-raised-button color="primary" routerLink="/forgot-password">
         <mat-icon>help_outline</mat-icon>
-        <span>Forgot password</span>
+        <span> Forgot password</span>
     </button>
     <button class="spaceBetween" mat-raised-button color="primary" routerLink="/verify-email">
-        <mat-icon>help_outline</mat-icon>
-        <span>Resend email verification</span>
+        <mat-icon> help_outline</mat-icon>
+        <span> Resend email verification</span>
     </button>
 </section>
 
@@ -89,11 +89,11 @@
 <section>
     <button class="spaceBetween" mat-raised-button color="primary" routerLink="/dashboard">
         <mat-icon>dashboard</mat-icon>
-        <span>Dashboard</span>
+        <span> Dashboard</span>
     </button>
     <button mat-raised-button color="primary" routerLink="/admin">
         <mat-icon>admin_panel_settings</mat-icon>
-        <span>Admin Dashboard</span>
+        <span> Admin Dashboard</span>
     </button>
 </section>
 
