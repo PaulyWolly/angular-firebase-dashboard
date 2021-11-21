@@ -54,13 +54,26 @@
                         <li><button class="dropdown-item" routerLink="/home"><img class="imageIcon house-fill"
                                     src="../../../assets/img/house-fill.svg" house-fill.svg width="17" height="20"
                                     alt=""> Go Home </button></li>
+
+
+                        <li><button class="dropdown-item" routerLink="/highlight-test"><img
+                                    src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                                Highlight test </button></li>
+                        <li>
+
+                        <li><button class="dropdown-item" routerLink="/pipe-demo"><img
+                                    src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                                Pipes Demo </button></li>
+                        <li>
+
                         <li>
                             <hr class="dropdown-divider">
                         </li>
 
-                        <li><button class="dropdown-item logoutPointer" (click)="logout()"><img class="imageIcon logout"
-                                    src="../../../assets/img/door-open-fill.svg" door-open-fill.svg width="17"
-                                    height="17" alt=""> Logout</button></li>
+                        <li><button class="dropdown-item logoutPointer" (click)="logout();"><img
+                                    class="imageIcon logout" src="../../../assets/img/door-open-fill.svg"
+                                    door-open-fill.svg width="17" height="17" alt=""> Logout</button>
+                        </li>
                     </ul>
                 </li>
 
@@ -135,7 +148,11 @@
             <h2>Title Case, Lowercase and Uppercase pipes - Enter a sentence: <input style="width: 400px"
                     class="form-control" type="text" [(ngModel)]="outPut" />
                 <span>
-                    <h3>>>&nbsp;&nbsp;{{ outPut | titlecase }}</h3>
+                    <h2>Titlecase: &nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp; <span style="font-size: 18px;font-weight: 400;">{{
+                            outPut
+                            |
+                            titlecase
+                            }}</span></h2>
                     <h2>Lowercase: >>&nbsp;&nbsp; <span style="font-size: 18px;font-weight: 400;">{{ outPut | lowercase
                             }}</span></h2>
                     <h2>Uppercase: >>&nbsp;&nbsp; <span style="font-size: 18px;font-weight: 400;">{{ outPut | uppercase

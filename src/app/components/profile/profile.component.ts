@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -21,7 +21,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     public afAuth: AngularFireAuth,
-    public firestore: AngularFirestore
+    public firestore: AngularFirestore,
+    public router: Router
     ) { }
 
   ngOnInit(): void {
@@ -36,8 +37,15 @@ export class ProfileComponent implements OnInit {
   }
 
   logout(): void {
+
+    this.router.navigate(['/home']);
+
     this.afAuth.signOut();
     window.location.reload();
+
+    /* setTimeout(() => {
+
+    }, 200); */
 
   }
 

@@ -23,7 +23,7 @@ export class PipeDemoComponent implements OnInit {
     constructor(
       public afAuth: AngularFireAuth,
       private firestore: AngularFirestore,
-      public route: Router
+      public router: Router
       ) {
 
     }
@@ -37,6 +37,19 @@ export class PipeDemoComponent implements OnInit {
                 this.user = this.firestore.collection('users').doc(emailLower).valueChanges();
             }
         });
+
+    }
+
+    logout(): void {
+
+      this.router.navigate(['/home']);
+
+      this.afAuth.signOut();
+      window.location.reload();
+
+      /* setTimeout(() => {
+
+      }, 200); */
 
     }
 }
