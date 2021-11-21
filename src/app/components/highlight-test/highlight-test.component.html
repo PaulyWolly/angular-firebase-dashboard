@@ -9,11 +9,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a style="font-size: large;" class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                    <a style="font-size: large;" class="nav-link active" aria-current="page" href="#">Highlight
+                        Directive (Custom-made)</a>
                 </li>
                 <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li> -->
+                        <a class="nav-link" href="#">Link</a>
+                    </li> -->
             </ul>
             <ul class="navbar-nav">
                 <li>
@@ -21,28 +22,30 @@
                         <mat-card style="height: 30px;" *ngIf="(afAuth.user | async)">
                             <mat-icon class="checkCircle">check_circle</mat-icon>
 
-                            <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Logged in as:
+                            <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Logged in
+                                as:
                                 <span *ngIf="(user | async)">{{ (user | async)?.displayName }}</span>
                             </span>
 
                         </mat-card>
                         <mat-card *ngIf="!(afAuth.user | async)">
                             <mat-icon style="position:relative; bottom: 12px;">do_not_disturb</mat-icon>
-                            <span style="position:relative; bottom: 18px; margin-left:10px">User is not logged in</span>
+                            <span style="position:relative; bottom: 18px; margin-left:10px">User is not logged
+                                in</span>
                         </mat-card>
                     </form>
                 </li>
                 <!--  <div class="col">
-                    <div ngbDropdown class="d-inline-block">
-                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle
-                            dropdown</button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                            <button ngbDropdownItem>Action - 1</button>
-                            <button ngbDropdownItem>Another Action</button>
-                            <button ngbDropdownItem>Something else is here</button>
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle
+                                dropdown</button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <button ngbDropdownItem>Action - 1</button>
+                                <button ngbDropdownItem>Another Action</button>
+                                <button ngbDropdownItem>Something else is here</button>
+                            </div>
                         </div>
-                    </div>
-                </div> -->
+                    </div> -->
                 <li *ngIf="(user | async)" class="nav-item dropdown">
                     <a *ngIf="(user | async)" ngbDropdownToggle class="nav-link dropdown-toggle" href="#"
                         id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Menu </a>
@@ -52,12 +55,13 @@
                                     alt=""> Profile </button></li>
                         <li><button class="dropdown-item" routerLink="/home"><img class="imageIcon house-fill"
                                     src="../../../assets/img/house-fill.svg" house-fill.svg width="17" height="20"
-                                    alt=""> Go Home </button></li>
+                                    alt="">
+                                Go Home </button></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
 
-                        <li><button class="dropdown-item" logoutPointer (click)="logout()"><img class="imageIcon logout"
+                        <li><button class="dropdown-item logoutPointer" (click)="logout()"><img class="imageIcon logout"
                                     src="../../../assets/img/door-open-fill.svg" door-open-fill.svg width="17"
                                     height="17" alt=""> Logout</button></li>
                     </ul>
@@ -67,21 +71,40 @@
         </div>
     </div>
 </nav>
+<section class="highlight">
+    <h1>My First Attribute "Highlight" Directive</h1>
 
-<section class="pagePosition">
-    <button mat-raised-button color="primary" routerLink="/home">
-        <mat-icon>home</mat-icon>
-        <span> Home</span>
-    </button>
-
-
-    <div *ngIf="(user | async)?.accountType == 'admin'; else notAdmin">
-        hello admin!
-        <br>
-        this is a simple test for admin status. a more rigorous test is to edit the auth.guard.ts file :)
+    <h2>Pick a highlight color... then mouse over the text!</h2>
+    <p></p>
+    <div>
+        <input type="radio" name="colors" (click)="color='lightgreen'">Green
+        <input type="radio" name="colors" (click)="color='yellow'">Yellow
+        <input type="radio" name="colors" (click)="color='cyan'">Cyan
+        <span>
+            &nbsp;<== these choices will override the defaults.</span>
     </div>
 
-    <ng-template #notAdmin>
-        You are NOT admin
-    </ng-template>
+
+    <p></p>
+    <p [Highlight]="color">Highlight me! (red default)</p>
+
+    <p [Highlight]="color" defaultColor="violet">
+        Highlight me too! (violet default)
+    </p>
+
+    <hr />
+    <h2>Mouse over the following lines to see fixed highlights</h2>
+
+    <p [Highlight]="'yellow'">Highlighted in yellow</p>
+    <p Highlight="orange">Highlighted in orange</p>
+
+    <hr />
+
+    <h2>ngNonBindable</h2>
+    <p>Use ngNonBindable to stop evaluation.</p>
+    <p ngNonBindable>This should not evaluate: {{ 1 + 1 }}</p>
+
+    <h3>ngNonBindable with a directive</h3>
+    <div ngNonBindable [Highlight]="'yellow'">This should not evaluate: {{ 1 +1 }}, but will highlight yellow.
+    </div>
 </section>

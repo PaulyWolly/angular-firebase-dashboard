@@ -47,8 +47,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire/compat';
@@ -58,8 +58,18 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ToggleDirective } from './directives/toggle/toggle.directive';
-import { AppHighlightDirective } from './directives/app-highlight/app-highlight.directive';
+import { HighlightDirective } from './directives/highlight/highlight.directive';
 import { AutoFocus } from './directives/auto-focus/auto-focus.directive';
+import { HighlightTestComponent } from './components/highlight-test/highlight-test.component';
+
+import { FileSizePipe } from './pipes/filesize.pipe';
+import { TemperatureConverterPipe } from './pipes/temperature-converter.pipe';
+import { WordcountPipe } from './pipes/wordcount.pipe';
+import { CommonModule } from '@angular/common';
+import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
+import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
+import { SquarePipe } from './pipes/square.pipe';
+import { DeleteCharactersPipe } from './pipes/delete-characters.pipe';
 
 @NgModule({
     declarations: [
@@ -73,8 +83,16 @@ import { AutoFocus } from './directives/auto-focus/auto-focus.directive';
         AdminDashboardComponent,
         ProfileComponent,
         ToggleDirective,
-        AppHighlightDirective,
-        AutoFocus
+        HighlightDirective,
+        AutoFocus,
+        HighlightTestComponent,
+        PipeDemoComponent,
+        WordcountPipe,
+        TemperatureConverterPipe,
+        ConvertToSpacesPipe,
+        SquarePipe,
+        DeleteCharactersPipe
+
     ],
     imports: [
         BrowserModule,
@@ -83,7 +101,7 @@ import { AutoFocus } from './directives/auto-focus/auto-focus.directive';
 
         AngularFireModule.initializeApp(environment.firebase),  // imports firebase/app needed for everything
         AngularFirestoreModule,                                 // imports firebase/firestore, only needed for database features
-        // AngularFireStorageModule,                               // imports firebase/storage only needed for storage features
+        // AngularFireStorageModule,                            // imports firebase/storage only needed for storage features
         AngularFireDatabaseModule,
 
         MatAutocompleteModule,
@@ -123,9 +141,8 @@ import { AutoFocus } from './directives/auto-focus/auto-focus.directive';
 
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule
-
-
+        HttpClientModule,
+        CommonModule
     ],
     providers: [],
     bootstrap: [AppComponent]

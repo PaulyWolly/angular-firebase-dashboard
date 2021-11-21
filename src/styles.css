@@ -27,3 +27,13 @@ body {
 .logoutPointer {
     cursor: pointer;
 }
+
+.imageIcon {
+    position: relative;
+    bottom: 2px;
+}
+
+.profile {
+    font-weight: 800;
+
+}

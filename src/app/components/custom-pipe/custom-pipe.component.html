@@ -9,7 +9,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a style="font-size: large;" class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                    <a style="font-size: large;" class="nav-link active" aria-current="page" href="#">Custom & Built-In
+                        Pipes</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -57,7 +58,7 @@
                             <hr class="dropdown-divider">
                         </li>
 
-                        <li><button class="dropdown-item" logoutPointer (click)="logout()"><img class="imageIcon logout"
+                        <li><button class="dropdown-item logoutPointer" (click)="logout()"><img class="imageIcon logout"
                                     src="../../../assets/img/door-open-fill.svg" door-open-fill.svg width="17"
                                     height="17" alt=""> Logout</button></li>
                     </ul>
@@ -68,20 +69,19 @@
     </div>
 </nav>
 
-<section class="pagePosition">
-    <button mat-raised-button color="primary" routerLink="/home">
-        <mat-icon>home</mat-icon>
-        <span> Home</span>
-    </button>
+<!-- <section>
+    <div>
+        <p></p>
+        <p>Lets count words in a sentence.</p>
 
+        <div style="text-align:center">
+            <img width="200" alt="Angular Logo"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+            <p> Word Counter Pipe in action below:</p>
+             <h1>{{ customText | uppercase }}</h1>
 
-    <div *ngIf="(user | async)?.accountType == 'admin'; else notAdmin">
-        hello admin!
-        <br>
-        this is a simple test for admin status. a more rigorous test is to edit the auth.guard.ts file :)
-    </div>
+ <td>{{customText | lowercase | convertToSpaces: '-' }}</td>
+</div>
 
-    <ng-template #notAdmin>
-        You are NOT admin
-    </ng-template>
-</section>
+</div>
+</section> -->

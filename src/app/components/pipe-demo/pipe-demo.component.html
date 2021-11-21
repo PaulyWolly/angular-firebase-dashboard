@@ -1,0 +1,167 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <button class="pagePosition navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a style="font-size: large;" class="nav-link active" aria-current="page" href="#">Custom & Built-In
+                        Pipes</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li> -->
+            </ul>
+            <ul class="navbar-nav">
+                <li>
+                    <form style="height: 30px;margin-right: auto" class="d-flex">
+                        <mat-card style="height: 30px;" *ngIf="(afAuth.user | async)">
+                            <mat-icon class="checkCircle">check_circle</mat-icon>
+
+                            <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Logged in as:
+                                <span *ngIf="(user | async)">{{ (user | async)?.displayName }}</span>
+                            </span>
+
+                        </mat-card>
+                        <mat-card *ngIf="!(afAuth.user | async)">
+                            <mat-icon style="position:relative; bottom: 12px;">do_not_disturb</mat-icon>
+                            <span style="position:relative; bottom: 18px; margin-left:10px">User is not logged in</span>
+                        </mat-card>
+                    </form>
+                </li>
+                <!--  <div class="col">
+                    <div ngbDropdown class="d-inline-block">
+                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle
+                            dropdown</button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                            <button ngbDropdownItem>Action - 1</button>
+                            <button ngbDropdownItem>Another Action</button>
+                            <button ngbDropdownItem>Something else is here</button>
+                        </div>
+                    </div>
+                </div> -->
+                <li *ngIf="(user | async)" class="nav-item dropdown">
+                    <a *ngIf="(user | async)" ngbDropdownToggle class="nav-link dropdown-toggle" href="#"
+                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Menu </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><button class="dropdown-item" routerLink="/profile"><img class="imageIcon profile"
+                                    src="../../../assets/img/person-circle.svg" person-circle.svg width="17" height="20"
+                                    alt=""> Profile </button></li>
+                        <li><button class="dropdown-item" routerLink="/home"><img class="imageIcon house-fill"
+                                    src="../../../assets/img/house-fill.svg" house-fill.svg width="17" height="20"
+                                    alt=""> Go Home </button></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li><button class="dropdown-item logoutPointer" (click)="logout()"><img class="imageIcon logout"
+                                    src="../../../assets/img/door-open-fill.svg" door-open-fill.svg width="17"
+                                    height="17" alt=""> Logout</button></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section>
+    <div>
+        <p></p>
+
+        <div style="text-align:left">
+            <h2>Count words in a sentence pipe:</h2>
+            <h3>
+
+                Enter a sentence:
+                <input style="width: 600px;" class="form-control" type="text" [(ngModel)]="sentence" />
+            </h3>
+
+
+            <h2> Our word count is: <span>{{ sentence | wordcount }}</span></h2>
+
+            <hr>
+
+            <h2>Temperature conversion pipe:</h2>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" src="" alt="">
+
+                            <div class="card-body">
+                                <h2 class="card-title">Fahrenheit to Celsius</h2>
+
+                                <p>Fahrenheit : <input type="text" [(ngModel)]="Fdegrees" /></p>
+                                <p>>> &nbsp;&nbsp;{{ Fdegrees | temperatureConverter : 'C' }} C</p>
+
+
+                                <!-- <a href="#" class="btn btn-outline-primary btn-sm">
+                                    Card link
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">
+                                    <i class="far fa-heart"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" src="" alt="">
+
+                            <div class="card-body">
+                                <h2 class="card-title">Celcius to Fahrenheit</h2>
+
+                                <p>Celcius : <input type="text" [(ngModel)]="Cdegrees" /></p>
+                                <p>>>&nbsp;&nbsp;{{ Cdegrees | temperatureConverter: 'F' }} F</p>
+
+                                <!-- <a href="#" class="btn btn-outline-primary btn-sm">
+                                    Card link
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">
+                                    <i class="far fa-heart"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <h2>Title Case, Lowercase and Uppercase pipes - Enter a sentence: <input style="width: 400px"
+                    class="form-control" type="text" [(ngModel)]="outPut" />
+                <span>
+                    <h3>>>&nbsp;&nbsp;{{ outPut | titlecase }}</h3>
+                    <h2>Lowercase: >>&nbsp;&nbsp; <span style="font-size: 18px;font-weight: 400;">{{ outPut | lowercase
+                            }}</span></h2>
+                    <h2>Uppercase: >>&nbsp;&nbsp; <span style="font-size: 18px;font-weight: 400;">{{ outPut | uppercase
+                            }}</span></h2>
+                </span>
+            </h2>
+            <hr>
+            <h2>Square the value entered pipe - Enter a value: <input style="width: 400px" class="form-control"
+                    type="text" [(ngModel)]="squaredValue" />
+                <span>
+                    <h3>>> &nbsp;&nbsp;{{ squaredValue | squared }}</h3>
+                </span>
+            </h2>
+            <hr>
+            <h2>Remove all 'a' characters and white space from a sentence pipe - Enter a value: <input
+                    style="width: 400px" class="form-control" type="text" [(ngModel)]="output" />
+                <span>
+                    <h3>>> &nbsp;&nbsp;{{ output | deleteCharacters: 'a' }}</h3>
+                </span>
+            </h2>
+            <hr>
+
+
+
+            <p>&nbsp;</p>
+        </div>
+
+    </div>
+</section>

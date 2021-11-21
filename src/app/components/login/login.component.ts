@@ -40,7 +40,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
 
-        if (this.authService.userLoggedIn) {                       // if the user's logged in, navigate them to the dashboard (NOTE: don't use afAuth.currentUser -- it's never null)
+        if (this.authService.userLoggedIn) {
+            // if the user's logged in, navigate them to the dashboard (NOTE: don't use afAuth.currentUser -- it's never null)
             this.router.navigate(['/dashboard']);
         }
 
@@ -57,7 +58,8 @@ export class LoginComponent implements OnInit {
     }
 
     loginUser() {
-        this.isProgressVisible = true;                          // show the progress indicator as we start the Firebase login process
+        this.isProgressVisible = true;
+        // show the progress indicator as we start the Firebase login process
 
         if (this.loginForm.invalid)
             return;
