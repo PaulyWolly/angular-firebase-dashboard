@@ -66,10 +66,12 @@ import { FileSizePipe } from './pipes/filesize.pipe';
 import { TemperatureConverterPipe } from './pipes/temperature-converter.pipe';
 import { WordcountPipe } from './pipes/wordcount.pipe';
 import { CommonModule } from '@angular/common';
-import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
+
 import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
 import { SquarePipe } from './pipes/square.pipe';
 import { DeleteCharactersPipe } from './pipes/delete-characters.pipe';
+import { ExampleDirective } from './directives/example/example.directive';
+import { DirectiveDemoComponent } from './components/directive-demo/directive-demo.component';
 
 @NgModule({
     declarations: [
@@ -89,9 +91,10 @@ import { DeleteCharactersPipe } from './pipes/delete-characters.pipe';
         PipeDemoComponent,
         WordcountPipe,
         TemperatureConverterPipe,
-        ConvertToSpacesPipe,
         SquarePipe,
-        DeleteCharactersPipe
+        DeleteCharactersPipe,
+        ExampleDirective,
+        DirectiveDemoComponent
 
     ],
     imports: [

@@ -9,9 +9,9 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
-//import { ConverterPipeComponent } from './components/converter-pipe/converter-pipe.component';
 import { HighlightTestComponent } from './components/highlight-test/highlight-test.component';
 import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
+import { DirectiveDemoComponent } from './components/directive-demo/directive-demo.component';
 
 import { AuthGuard } from './services/auth.guard';
 
@@ -23,14 +23,13 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   {path: 'highlight-test', component:HighlightTestComponent, canActivate: [AuthGuard] },
   {path: 'pipe-demo', component: PipeDemoComponent, canActivate: [AuthGuard] },
+  {path: 'directive-demo', component: DirectiveDemoComponent, canActivate: [AuthGuard] },
   {path: 'home', component: HomeComponent },
   {path: 'login', component: LoginComponent },
   {path: 'signup', component: SignupComponent },
   {path: 'verify-email', component: VerifyEmailComponent },
   {path: '**', component: HomeComponent }
-
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

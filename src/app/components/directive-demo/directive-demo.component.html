@@ -15,8 +15,9 @@
                 </li>
 
                 <li class="nav-item">
-                    <a style="font-size: large;" class="nav-link active" aria-current="page">Login</a>
+                    <a style="font-size: large;" class="nav-link active" aria-current="page">Custom Directive Demo</a>
                 </li>
+
             </ul>
             <ul class="navbar-nav">
                 <li>
@@ -35,17 +36,7 @@
                         </mat-card>
                     </form>
                 </li>
-                <!--  <div class="col">
-                    <div ngbDropdown class="d-inline-block">
-                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle
-                            dropdown</button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                            <button ngbDropdownItem>Action - 1</button>
-                            <button ngbDropdownItem>Another Action</button>
-                            <button ngbDropdownItem>Something else is here</button>
-                        </div>
-                    </div>
-                </div> -->
+
                 <li *ngIf="(user | async)" class="nav-item dropdown">
                     <a *ngIf="(user | async)" ngbDropdownToggle class="nav-link dropdown-toggle" href="#"
                         id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Menu </a>
@@ -71,43 +62,26 @@
     </div>
 </nav>
 
-<section class="pagePosition">
-    <button mat-raised-button color="primary" routerLink="/home">
-        <mat-icon>home</mat-icon>
-        <span> Home</span>
-    </button>
+<section>
+    <h2>Manipulate the text field backgound color - using a custom directive</h2>
+    <button class="btn btn-primary" (click)="resetPage()">Reset</button>
+    Reset the page to change color to 'White'
+    <p></p>
 
-    <mat-card class="form-card">
-        <form [formGroup]="signupForm" (ngSubmit)="signup()">
-            <p>
-                <mat-form-field appearance="outline">
-                    <mat-label>Full Name</mat-label>
-                    <input autofocus autocomplete="off" formControlName="displayName" type="text" matInput
-                        placeholder="Display Name">
-                </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input formControlName="email" type="email" matInput placeholder="Email">
-                </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input autocomplete="off" formControlName="password" type="password" matInput
-                        placeholder="Password">
-                </mat-form-field>
-            </p>
-            <div *ngIf="firebaseErrorMessage != ''" class="error-style">
-                <span>{{ firebaseErrorMessage }}</span>
-            </div>
 
-            <button mat-raised-button color="primary">Signup</button>
-        </form>
-    </mat-card>
+    <h2>This textarea text field is set up so that the background color will change with mouse actions.
 
-    <div class="progressIndicator" [style.display]="isProgressVisible ? 'inline' : 'none' ">
-        <mat-progress-spinner class=" example-margin" color="primary" mode="indeterminate"></mat-progress-spinner>
-    </div>
+        If you mouseOver the field the background color changes to <span
+            style="color: yellow;text-shadow: 2px 2px 3px grey;">Yellow</span> ...
+
+        then if you "click" within the text field the background color will change to <span
+            style="color: green; text-shadow: 2px 2px 3px grey;">Green</span> ...
+
+        then move out of the text field the field changes color to <span
+            style="color: beige; text-shadow: 2px 2px 3px grey;">Beige</span>.
+    </h2>
+
+
+    <textarea id=" color" style="width: 500px; height:100px; text-anchor:start;" class="bigbox form-control" appExample
+        type="text"></textarea>
 </section>

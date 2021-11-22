@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConverterPipeComponent } from './converter-pipe.component';
+import { DirectiveDemoComponent } from './directive-demo.component';
 
-describe('ConverterPipeComponent', () => {
-  let component: ConverterPipeComponent;
-  let fixture: ComponentFixture<ConverterPipeComponent>;
+describe('DirectiveDemoComponent', () => {
+  let component: DirectiveDemoComponent;
+  let fixture: ComponentFixture<DirectiveDemoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConverterPipeComponent ]
+      declarations: [ DirectiveDemoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConverterPipeComponent);
+    fixture = TestBed.createComponent(DirectiveDemoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

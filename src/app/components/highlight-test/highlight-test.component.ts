@@ -12,7 +12,8 @@ styleUrls: ['./highlight-test.component.css']
 
 export class HighlightTestComponent implements OnInit {
 
-  color: string;user: Observable<any>;
+  color: string;
+  user: Observable<any>;
 
   constructor(public afAuth: AngularFireAuth,
               public firestore: AngularFirestore,
