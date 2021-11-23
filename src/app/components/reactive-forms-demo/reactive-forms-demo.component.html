@@ -105,6 +105,20 @@
                 <h1 class="page-title">Login</h1>
                 <form [formGroup]="loginForm" (ngSubmit)="login()">
 
+                    <!-- <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" formControlName="email">
+                    </div>
+
+                    <div *ngIf="isValidInput('email')" class="alert alert-danger">
+                        <div *ngIf="loginForm.controls['email'].errors.required">
+                            Email is required.
+                        </div>
+                        <div *ngIf="loginForm.controls['email'].errors.pattern">
+                            Must be a valid email format.
+                        </div>
+                    </div> -->
+
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" formControlName="email">
@@ -130,7 +144,9 @@
                         </div>
                     </div>
 
-                    <button [disabled]="!loginForm.valid" type="submit" class="btn btn-warning">Sign In</button>
+                    <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Sign In</button>
+                    &nbsp;&nbsp;
+                    <button style="color: #fff;" type="reset" class="btn btn-info">Reset</button>
                 </form>
             </div>
         </div>

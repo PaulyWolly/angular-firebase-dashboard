@@ -100,8 +100,7 @@ import { NgxFormValidationsModule } from 'ngx-form-validations';
         ExampleDirective,
         DirectiveDemoComponent,
         FormSubmitOnKeypressComponent,
-        ReactiveFormsDemoComponent,
-        ErrorComponent
+        ReactiveFormsDemoComponent
 
     ],
     imports: [

@@ -76,7 +76,8 @@ export class ReactiveFormsDemoComponent implements OnInit {
     console.log('Email: ', this.loginForm.value.email);
     console.log('Password: ', this.loginForm.value.password);
 
-    alert(this.loginForm.value.email);
+    //alert(this.loginForm.value.email);
+    alert('Form submitted');
 
   // Inside the login() function, you can either write the direct network request code using
   // <a href="https://appdividend.com/2019/06/06/angular-8-httpclient-example-how-to-send-ajax-request-in-angular/">Angular httpclient</a>
