@@ -45,10 +45,9 @@ body {
     right: 20px;
 }
 
-a .forgot-password, .profile, .menu, .verify-email, .dashboard, .admin-dashboard,
-.login, .reactive-forms, .form-submit-keypress, .highlight-test, .custom-pipes,
-.directive-demo   {
-    color:rgb(85, 49, 49);
+.forgot-password, .profile, .menu, .verify-email, .dashboard, .admin-dashboard, .login,
+.reactive-forms, .form-submit-keypress, .highlight-test, .custom-pipes, .directive-demo   {
+    color:rgb(130, 130, 130);
 }
 
 .fontShadowsIntoLight {
