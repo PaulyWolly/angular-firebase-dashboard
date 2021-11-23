@@ -2,11 +2,68 @@
 
 @import '~bootstrap/dist/css/bootstrap.css';
 
+/* shorthand notation for margins */
+/*
+        TB   LR
+margin: 10px 10px
+        T    RL   B
+margin: 30px 70px 50px
+        T    R    B    L
+margin: 20px 30px 10px 10px
+
+*/
+
 html, body { height: 100%; }
 
 body {
     margin: 20px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.nav-link {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.nav-link.dropdown-toggle {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+    font-weight:900;
+    color: rgb(19, 18, 18);
+}
+
+.nav-link.menu, .nav-link.home, .nav-link.profile, .nav-link.forgot-password,
+.nav-link.verify-email, .nav-link.dashboard, .nav-link.admin-dashboard,
+.nav-link.login, .nav-link.reactive-forms, .nav-link.form-submit-keypress,
+.nav-link.directive-demo  {
+    font-size: 30px;
+    color:rgb(130, 130, 130);
+    font-weight: bolder;
+    position: relative;
+    right: 20px;
+}
+
+a .forgot-password, .profile, .menu, .verify-email, .dashboard, .admin-dashboard,
+.login, .reactive-forms, .form-submit-keypress, .highlight-test, .custom-pipes,
+.directive-demo   {
+    color:rgb(85, 49, 49);
+}
+
+.fontShadowsIntoLight {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 40px;
+}
+
+span.hidden-xs {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h6.UP-h-style {
+    font-weight: 500;
+    font-size: 60px;
+    color: red;
 }
 
 .spaceBetween {

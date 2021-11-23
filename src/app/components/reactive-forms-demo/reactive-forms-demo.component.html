@@ -1,26 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <button class="pagePosition navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" alt="Go to Home"><span
+                    <a class="nav-link active home" aria-current="page" href="#" alt="Go to Home"><span
                             title="Go to Home ">Home</span>
-                        <span>&nbsp;&nbsp;|</span></a>
+                        <span>&nbsp;|</span></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page">Admin Dashboard</a>
+                    <a class="nav-link active reactive-forms" aria-current="page">Reactive Forms</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li> -->
             </ul>
             <ul class="navbar-nav">
                 <li>
@@ -28,14 +24,16 @@
                         <mat-card style="height: 30px;" *ngIf="(afAuth.user | async)">
                             <mat-icon class="checkCircle">check_circle</mat-icon>
 
-                            <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Logged in as:
+                            <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Logged in
+                                as:
                                 <span *ngIf="(user | async)">{{ (user | async)?.displayName }}</span>
                             </span>
 
                         </mat-card>
                         <mat-card *ngIf="!(afAuth.user | async)">
                             <mat-icon style="position:relative; bottom: 12px;">do_not_disturb</mat-icon>
-                            <span style="position:relative; bottom: 18px; margin-left:10px">User is not logged in</span>
+                            <span style="position:relative; bottom: 18px; margin-left:10px">User is not logged
+                                in</span>
                         </mat-card>
                     </form>
                 </li>
@@ -60,13 +58,36 @@
                         <li><button class="dropdown-item" routerLink="/home"><img class="imageIcon house-fill"
                                     src="../../../assets/img/house-fill.svg" house-fill.svg width="17" height="20"
                                     alt=""> Go Home </button></li>
+
+
+                        <li><button class="dropdown-item" routerLink="/highlight-test"><img
+                                    src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                                Highlight test </button></li>
+                        <li>
+
+                        <li><button class="dropdown-item" routerLink="/pipe-demo"><img
+                                    src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                                Pipes Demo </button></li>
+                        <li>
+
+                        <li><button class="dropdown-item" routerLink="/directive-demo"><img
+                                    src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                                Directives Demo </button></li>
+                        <li>
+
+                        <li><button class="dropdown-item" routerLink="/submit-keypress"><img
+                                    src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                                Submit on Keypress </button></li>
+                        <li>
+
                         <li>
                             <hr class="dropdown-divider">
                         </li>
 
-                        <li><button class="dropdown-item" logoutPointer (click)="logout()"><img class="imageIcon logout"
+                        <li><button class="dropdown-item logoutPointer" (click)="logout()"><img class="imageIcon logout"
                                     src="../../../assets/img/door-open-fill.svg" door-open-fill.svg width="17"
-                                    height="17" alt=""> Logout</button></li>
+                                    height="17" alt=""> Logout</button>
+                        </li>
                     </ul>
                 </li>
 
@@ -74,21 +95,3 @@
         </div>
     </div>
 </nav>
-
-<section class="pagePosition">
-    <button mat-raised-button color="primary" routerLink="/home">
-        <mat-icon>home</mat-icon>
-        <span> Home</span>
-    </button>
-
-
-    <div *ngIf="(user | async)?.accountType == 'admin'; else notAdmin">
-        hello admin!
-        <br>
-        this is a simple test for admin status. a more rigorous test is to edit the auth.guard.ts file :)
-    </div>
-
-    <ng-template #notAdmin>
-        You are NOT admin
-    </ng-template>
-</section>

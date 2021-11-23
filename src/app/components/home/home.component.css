@@ -1,3 +1,27 @@
+body {
+    font-family: 'Shadows Into Light', cursive;
+}
+
 .spaceBetween {
     margin-right: 10px;
+
+}
+
+.nav-link.dropdown-toggle {
+    font-size: 26px;
+    color: black;
+}
+
+.nav-link.dropdown-toggle:active {
+    font-size: 26px;
+    color: black;
+    font-weight: bolder;
+}
+
+.nav-link.home {
+    font-size: 30px;
+    color: black;
+    font-weight: bolder;
+    position: relative;
+    right: 20px;
 }

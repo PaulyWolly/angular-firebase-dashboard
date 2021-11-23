@@ -1,26 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <button class="pagePosition navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" alt="Go to Home"><span
+                    <a class="nav-link active home" aria-current="page" href="#" alt="Go to Home"><span
                             title="Go to Home ">Home</span>
-                        <span>&nbsp;&nbsp;|</span></a>
+                        <span>&nbsp;|</span></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page">Admin Dashboard</a>
+                    <a class="nav-link active form-submit-keypress" aria-current="page"><span
+                            class="form-submit-keypress">Form Submit on keypress</span></a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li> -->
             </ul>
             <ul class="navbar-nav">
                 <li>
@@ -64,7 +61,7 @@
                             <hr class="dropdown-divider">
                         </li>
 
-                        <li><button class="dropdown-item" logoutPointer (click)="logout()"><img class="imageIcon logout"
+                        <li><button class="dropdown-item logoutPointer" (click)="logout()"><img class="imageIcon logout"
                                     src="../../../assets/img/door-open-fill.svg" door-open-fill.svg width="17"
                                     height="17" alt=""> Logout</button></li>
                     </ul>
@@ -75,20 +72,9 @@
     </div>
 </nav>
 
-<section class="pagePosition">
-    <button mat-raised-button color="primary" routerLink="/home">
-        <mat-icon>home</mat-icon>
-        <span> Home</span>
-    </button>
+<section>
 
+    <button class="btn btn-primary">Submit</button>&nbsp;&nbsp;
+    <input (keydown)="onKeydown($event)">
 
-    <div *ngIf="(user | async)?.accountType == 'admin'; else notAdmin">
-        hello admin!
-        <br>
-        this is a simple test for admin status. a more rigorous test is to edit the auth.guard.ts file :)
-    </div>
-
-    <ng-template #notAdmin>
-        You are NOT admin
-    </ng-template>
 </section>

@@ -1,3 +1,4 @@
+import { ReactiveFormsDemoComponent } from './components/reactive-forms-demo/reactive-forms-demo.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -12,6 +13,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HighlightTestComponent } from './components/highlight-test/highlight-test.component';
 import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
 import { DirectiveDemoComponent } from './components/directive-demo/directive-demo.component';
+import { FormSubmitOnKeypressComponent } from './components/form-submit-on-keypress/form-submit-on-keypress.component';
 
 import { AuthGuard } from './services/auth.guard';
 
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path: 'highlight-test', component:HighlightTestComponent, canActivate: [AuthGuard] },
   {path: 'pipe-demo', component: PipeDemoComponent, canActivate: [AuthGuard] },
   {path: 'directive-demo', component: DirectiveDemoComponent, canActivate: [AuthGuard] },
+  {path: 'submit-keypress', component: FormSubmitOnKeypressComponent, canActivate: [AuthGuard] },
+  {path: 'reactive-form', component: ReactiveFormsDemoComponent, canActivate: [AuthGuard] },
   {path: 'home', component: HomeComponent },
   {path: 'login', component: LoginComponent },
   {path: 'signup', component: SignupComponent },

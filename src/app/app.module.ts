@@ -72,6 +72,8 @@ import { SquarePipe } from './pipes/square.pipe';
 import { DeleteCharactersPipe } from './pipes/delete-characters.pipe';
 import { ExampleDirective } from './directives/example/example.directive';
 import { DirectiveDemoComponent } from './components/directive-demo/directive-demo.component';
+import { FormSubmitOnKeypressComponent } from './components/form-submit-on-keypress/form-submit-on-keypress.component';
+import { ReactiveFormsDemoComponent } from './components/reactive-forms-demo/reactive-forms-demo.component';
 
 @NgModule({
     declarations: [
@@ -94,7 +96,9 @@ import { DirectiveDemoComponent } from './components/directive-demo/directive-de
         SquarePipe,
         DeleteCharactersPipe,
         ExampleDirective,
-        DirectiveDemoComponent
+        DirectiveDemoComponent,
+        FormSubmitOnKeypressComponent,
+        ReactiveFormsDemoComponent
 
     ],
     imports: [
