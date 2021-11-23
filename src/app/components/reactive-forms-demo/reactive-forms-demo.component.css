@@ -1,3 +1,16 @@
 body {
     font-family: "Shadows Into Light", sans-serif;
   }
+
+  section {
+    position: relative;
+    top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 500px;
+    border: 1px solid rgb(66, 66, 66); padding: 20px
+  }
+
+  form {
+    max-width: 600px;
+  }

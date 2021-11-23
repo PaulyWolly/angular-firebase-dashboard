@@ -74,6 +74,8 @@ import { ExampleDirective } from './directives/example/example.directive';
 import { DirectiveDemoComponent } from './components/directive-demo/directive-demo.component';
 import { FormSubmitOnKeypressComponent } from './components/form-submit-on-keypress/form-submit-on-keypress.component';
 import { ReactiveFormsDemoComponent } from './components/reactive-forms-demo/reactive-forms-demo.component';
+import { ErrorComponent } from './components/error/error.component';
+import { NgxFormValidationsModule } from 'ngx-form-validations';
 
 @NgModule({
     declarations: [
@@ -98,7 +100,8 @@ import { ReactiveFormsDemoComponent } from './components/reactive-forms-demo/rea
         ExampleDirective,
         DirectiveDemoComponent,
         FormSubmitOnKeypressComponent,
-        ReactiveFormsDemoComponent
+        ReactiveFormsDemoComponent,
+        ErrorComponent
 
     ],
     imports: [
@@ -149,7 +152,8 @@ import { ReactiveFormsDemoComponent } from './components/reactive-forms-demo/rea
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        CommonModule
+        CommonModule,
+        NgxFormValidationsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -95,12 +95,12 @@
 
         <div style="text-align:left">
             <h2>Count words in a sentence pipe:</h2>
-            <h3>
-
+            <h2>
                 Enter a sentence:
-                <input style="width: 600px;" class="form-control" type="text" [(ngModel)]="sentence" />
-            </h3>
-
+                <input type="text"
+                    placeholder="There's too many men, and too many people, making too many problems, and not much love to go around."
+                    style="width: 800px;" class="form-control" [(ngModel)]="sentence" />
+            </h2>
 
             <h2> Our word count is: <span>{{ sentence | wordcount }}</span></h2>
 
@@ -117,7 +117,8 @@
                             <div class="card-body">
                                 <h2 class="card-title">Fahrenheit to Celsius</h2>
 
-                                <p>Fahrenheit : <input type="text" [(ngModel)]="Fdegrees" /></p>
+                                <p>Fahrenheit : <input type="text" placeholder="32" [(ngModel)]="Fdegrees" />
+                                </p>
                                 <p>>> &nbsp;&nbsp;{{ Fdegrees | temperatureConverter : 'C' }} C</p>
 
 
@@ -136,7 +137,7 @@
                             <div class="card-body">
                                 <h2 class="card-title">Celcius to Fahrenheit</h2>
 
-                                <p>Celcius : <input type="text" [(ngModel)]="Cdegrees" /></p>
+                                <p>Celcius : <input type="text" placeholder="0" [(ngModel)]="Cdegrees" /></p>
                                 <p>>>&nbsp;&nbsp;{{ Cdegrees | temperatureConverter: 'F' }} F</p>
 
                                 <!-- <a href="#" class="btn btn-outline-primary btn-sm">

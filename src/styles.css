@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Shadows+Into+Light&display=swap');
 
 /* shorthand notation for margins */
 /*
@@ -21,6 +22,7 @@ body {
 }
 
 .nav-link {
+    /*font-family: 'Comforter Brush', cursive;*/
     font-family: 'Shadows Into Light', cursive;
     font-size: 30px;
     font-weight: bold;
@@ -28,7 +30,6 @@ body {
 }
 
 .nav-link.dropdown-toggle {
-    font-family: 'Shadows Into Light', cursive;
     font-size: 20px;
     font-weight:900;
     color: rgb(19, 18, 18);
@@ -39,7 +40,7 @@ body {
 .nav-link.login, .nav-link.reactive-forms, .nav-link.form-submit-keypress,
 .nav-link.directive-demo  {
     font-size: 30px;
-    color:rgb(130, 130, 130);
+    color:rgb(158, 158, 158);
     font-weight: bolder;
     position: relative;
     right: 20px;
@@ -47,12 +48,17 @@ body {
 
 .forgot-password, .profile, .menu, .verify-email, .dashboard, .admin-dashboard, .login,
 .reactive-forms, .form-submit-keypress, .highlight-test, .custom-pipes, .directive-demo   {
-    color:rgb(130, 130, 130);
+    color:rgb(158, 158, 158);
 }
 
 .fontShadowsIntoLight {
     font-family: 'Shadows Into Light', cursive;
     font-size: 40px;
+}
+
+.fontComforterBrush {
+    font-family: 'Comforter Brush', cursive;
+    /*font-family: 'Shadows Into Light', cursive;*/
 }
 
 span.hidden-xs {
@@ -92,4 +98,19 @@ h6.UP-h-style {
 .profile {
     font-weight: 800;
 
+}
+
+.dropdown-menu-end[data-bs-popper] {
+    right: -27px;
+    left: auto;
+}
+
+/* ==== Handle placeholder mouseEnter and mouseOut  ==== */
+
+input::placeholder {
+    color:lightskyblue;
+}
+
+input:focus::placeholder {
+    color: transparent;
 }

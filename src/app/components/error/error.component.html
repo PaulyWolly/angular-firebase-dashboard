@@ -1,0 +1,19 @@
+<small class="error-block" *ngFor="let errorMessage of listErrors(); let last=last;">
+    {{last ? errorMessage: ''}}
+</small>
+
+<!--
+    Usages:
+
+    <input
+   [type] ="inputObj.mobileNumber.type"
+   id="id1" name="custMobNumber"
+   [(ngModel)]="inputObj.mobileNumber.value"
+   [required]="inputObj.mobileNumber.required"
+   [minlength]="inputObj.mobileNumber.minLength"
+   [maxlength]="inputObj.mobileNumber.maxLength"
+   [pattern]="inputObj.mobileNumber.pattern"
+   class="textbox font-15 full-width">
+   <error-component [controlName]="collectionForm.controls['custMobNumber']">
+    </error-component>
+-->

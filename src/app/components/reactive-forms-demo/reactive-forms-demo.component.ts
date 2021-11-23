@@ -1,11 +1,11 @@
 import { Observable } from 'rxjs';
-import { Component, ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormArray, Validators } from "@angular/forms";
+import { Component, ChangeDetectorRef, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ValidatePassword } from "../../must-match/validate-password";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { AbstractControl } from '@angular/forms';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'reactive-form',
@@ -13,7 +13,10 @@ import { AbstractControl } from '@angular/forms';
   styleUrls: ['./reactive-forms-demo.component.css']
 })
 
-export class ReactiveFormsDemoComponent {
+export class ReactiveFormsDemoComponent implements OnInit {
+
+  loginForm: FormGroup;
+
   submitted = false;
 
   // City names
@@ -35,6 +38,9 @@ export class ReactiveFormsDemoComponent {
     ) { }
 
   ngOnInit(): void {
+
+    this.initForm();
+
     this.afAuth.authState.subscribe(user => {
         console.log('Dashboard: user', user);
 
@@ -45,101 +51,38 @@ export class ReactiveFormsDemoComponent {
     });
   }
 
-  /*##################### Registration Form #####################*/
-
-  registrationForm = this.fb.group({
-    file: [null],
-    fullName: this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(2), Validators.pattern('^[_A-z0-9]*((-|\s)*[_A-z0-9])*$')]],
-      lastName: ['', [Validators.required]]
-    }),
-    email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-    phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]+$')]],
-    address: this.fb.group({
-      street: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      cityName: ['', [Validators.required]]
-    }),
-    gender: ['male'],
-    PasswordValidation: this.fb.group({
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
-    },{
-      validator: ValidatePassword.MatchPassword // your validation method
-    }
-    ),
-    addDynamicElement: this.fb.array([])
-  })
-
-  /*########################## File Upload ########################*/
-
-  @ViewChild('fileInput') el: ElementRef;
-  imageUrl: any = 'https://i.pinimg.com/236x/d6/27/d9/d627d9cda385317de4812a4f7bd922e9--man--iron-man.jpg';
-  editFile: boolean = true;
-  removeUpload: boolean = false;
-
-  uploadFile(event) {
-    let reader = new FileReader(); // HTML5 FileReader API
-    let file = event.target.files[0];
-    if (event.target.files && event.target.files[0]) {
-      reader.readAsDataURL(file);
-
-      // When file uploads set it to file formcontrol
-      reader.onload = () => {
-        this.imageUrl = reader.result;
-        this.registrationForm.patchValue({
-          file: reader.result
-        });
-        this.editFile = false;
-        this.removeUpload = true;
-      }
-      // ChangeDetectorRef since file is loading outside the zone
-      this.cd.markForCheck();
-    }
-  }
-
-  // Function to remove uploaded file
-  removeUploadedFile() {
-    let newFileList = Array.from(this.el.nativeElement.files);
-    this.imageUrl = 'https://i.pinimg.com/236x/d6/27/d9/d627d9cda385317de4812a4f7bd922e9--man--iron-man.jpg';
-    this.editFile = true;
-    this.removeUpload = false;
-    this.registrationForm.patchValue({
-      file: [null]
+  initForm(): void {
+    this.loginForm = this.fb.group({
+      email: ['',
+      [
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
+        password: ['', Validators.required]
     });
   }
 
-  // Getter method to access formcontrols
-  get myForm() {
-    return this.registrationForm.controls;
+  isValidInput(fieldName: any | number): boolean {
+    return this.loginForm.controls[fieldName]
+    .invalid &&
+      (this.loginForm.controls[fieldName].dirty || this.loginForm.controls[fieldName].touched);
   }
 
-  // Choose city using select dropdown
-  changeCity(e) {
-    this.registrationForm.get('address.cityName').setValue(e.target.value, {
-      onlySelf: true
-    })
-  }
+  formObj:[];
 
-  /*############### Add Dynamic Elements ###############*/
+  login() {
 
-  get addDynamicElement() {
-    return this.registrationForm.get('addDynamicElement') as FormArray
-  }
 
-  addSuperPowers() {
-    this.addDynamicElement.push(this.fb.control(''))
-  }
 
-  // Submit Registration Form
-  onSubmit() {
-    this.submitted = true;
-    if(!this.registrationForm.valid) {
-      alert('Please fill all the required fields to create a super hero!')
-      return false;
-    } else {
-      console.log(this.registrationForm.value)
-    }
+    console.log('Email: ', this.loginForm.value.email);
+    console.log('Password: ', this.loginForm.value.password);
+
+    alert(this.loginForm.value.email);
+
+  // Inside the login() function, you can either write the direct network request code using
+  // <a href="https://appdividend.com/2019/06/06/angular-8-httpclient-example-how-to-send-ajax-request-in-angular/">Angular httpclient</a>
+  // or use <a href="https://appdividend.com/2018/01/20/angular-services-tutorial-example-scratch/">Angular service</a> and call that service’s
+  // function here and pass the form values as function parameters.
+
   }
 
 }
