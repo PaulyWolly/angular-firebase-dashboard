@@ -1,0 +1,34 @@
+section {
+    margin: 50px;
+    border: solid 1px grey;
+    padding: 20px;
+    width: 500px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.top-box {
+    background-color: blue;
+    text-align: center;
+    color: #fff;
+    height: 80px;
+    position: relative;
+    bottom: 20px;
+    width: 500px;
+    right: 20px;
+}
+
+div.top-box h2 {
+    position: relative;
+    top:20px;
+    font-size: 22px;
+}
+
+form.mx-2 {
+    position: relative;
+    bottom: 5px;
+}
+.ngx-form-validations {
+    color:rgb(221, 188, 188);
+    text-shadow: 2px 2px black;
+}

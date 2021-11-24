@@ -10,14 +10,16 @@
 
                 <li class="nav-item">
                     <a class="nav-link active home" aria-current="page" href="#" alt="Go to Home"><span
-                            title="Go to Home ">Home</span>
-                        <span>&nbsp;|</span></a>
+                            title="You ARE Home ">Home</span>
+                        <span>&nbsp;|</span>
+                    </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active form-submit-keypress" aria-current="page"><span
-                            class="form-submit-keypress">Form Submit on keypress</span></a>
+                    <a class="nav-link active ngx-form-validation" aria-current="page"><span
+                            class="ngx-form-validation">Ngx Form Validation</span></a>
                 </li>
+
             </ul>
             <ul class="navbar-nav">
                 <li>
@@ -106,9 +108,80 @@
     </div>
 </nav>
 
-<section>
+<!-- <form class="mx-2" [formGroup]="testForm" (ngSubmit)="onSubmit(testForm)" #fd="ngForm" [ngxFvControl]="fd">
+    <div>
+        <ngx-fv-validate [control]="testForm.controls.firstName">
+            <mat-form-field>
+                <mat-label #ngxFvName>
+                    Fisrt name
+                </mat-label>
+                <input type="text" matInput formControlName="firstName">
+                <mat-error>
+                    <ngx-fv-error></ngx-fv-error>
+                </mat-error>
+            </mat-form-field>
+        </ngx-fv-validate>
+    </div>
+    <ngx-fv-validate [control]="testForm.controls.familyName">
+        <mat-form-field>
+            <mat-label #ngxFvName>
+                Family name
+            </mat-label>
+            <input type="text" matInput formControlName="familyName">
+            <mat-error>
+                <ngx-fv-error></ngx-fv-error>
+            </mat-error>
+        </mat-form-field>
+    </ngx-fv-validate>
+    <div class="mt-2" formArrayName='checkboxes' *ngFor="let checkbox of formCheckboxDataArray.controls; let i = index">
+        <ngx-fv-validate [control]="checkbox.controls.checked" [labelName]="'CheckBox' + i">
+            <div [formGroupName]="i" class="custom-control custom-checkbox mb-3">
+                <mat-checkbox formControlName="checked" #ngxFvName>{{'CheckBox' + i}}</mat-checkbox>
+                <ngx-fv-error></ngx-fv-error>
+            </div>
+        </ngx-fv-validate>
+    </div>
+     <div>
+        <button mat-raised-button color="warn" type="button" (click)="resetForm(fd)">Reset</button>
+        <button mat-raised-button class="button" type="submit">Save</button>
+    </div>
+</form> -->
 
-    <button class="btn btn-primary">Submit</button>&nbsp;&nbsp;
-    <input (keydown)="onKeydown($event)">
+<section class="ngx-formValidation">
+    <div class="top-box">
+        <h2 style="position: relative;right:20px">Reactive Forms with <span
+                class="ngx-form-validations">ngx-form-validations</span></h2>
+    </div>
 
+    <form class="mx-2" [formGroup]="testForm" (ngSubmit)="onSubmit(testForm)" #fd="ngForm" [ngxFvControl]="fd">
+        <ngx-fv-validate [control]="testForm.controls.firstName">
+            <label #ngxFvName>
+                First name
+            </label>
+            <input #ngxFvFormControl type="text" class="form-control" formControlName="firstName">
+            <ngx-fv-error></ngx-fv-error>
+        </ngx-fv-validate>
+        <ngx-fv-validate [control]="testForm.controls.familyName">
+            <label #ngxFvName>
+                Family name
+            </label>
+            <input #ngxFvFormControl type="text" class="form-control" formControlName="familyName">
+            <ngx-fv-error></ngx-fv-error>
+        </ngx-fv-validate>
+        <div class="mt-2" formArrayName='checkboxes'
+            *ngFor="let checkbox of formCheckboxDataArray.controls; let i = index">
+            <ngx-fv-validate [control]="checkbox.controls.checked">
+                <div [formGroupName]="i" class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" formControlName="checked"
+                        [id]="'checkbox_' + i">
+                    <label #ngxFvName class="custom-control-label" [for]="'checkbox_' + i">{{'CheckBox' + i}}</label>
+                    <ngx-fv-error></ngx-fv-error>
+                </div>
+            </ngx-fv-validate>
+        </div>
+        <div class="mt-2">
+            <button class="mr-1 btn btn-danger" type="button" (click)="resetForm(fd)">Reset</button>
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+    </form>
 </section>
