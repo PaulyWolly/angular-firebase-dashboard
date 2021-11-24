@@ -14,6 +14,7 @@ import { HighlightTestComponent } from './components/highlight-test/highlight-te
 import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
 import { DirectiveDemoComponent } from './components/directive-demo/directive-demo.component';
 import { FormSubmitOnKeypressComponent } from './components/form-submit-on-keypress/form-submit-on-keypress.component';
+import { NgxFormValidationComponent } from './components/ngx-form-validation/ngx-form-validation.component';
 
 import { AuthGuard } from './services/auth.guard';
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'directive-demo', component: DirectiveDemoComponent, canActivate: [AuthGuard] },
   {path: 'submit-keypress', component: FormSubmitOnKeypressComponent, canActivate: [AuthGuard] },
   {path: 'reactive-form', component: ReactiveFormsDemoComponent, canActivate: [AuthGuard] },
+  {path: 'ngx-form-validation', component: NgxFormValidationComponent, canActivate: [AuthGuard] },
   {path: 'home', component: HomeComponent },
   {path: 'login', component: LoginComponent },
   {path: 'signup', component: SignupComponent },

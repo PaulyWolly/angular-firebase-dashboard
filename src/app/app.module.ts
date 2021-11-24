@@ -74,7 +74,13 @@ import { ExampleDirective } from './directives/example/example.directive';
 import { DirectiveDemoComponent } from './components/directive-demo/directive-demo.component';
 import { FormSubmitOnKeypressComponent } from './components/form-submit-on-keypress/form-submit-on-keypress.component';
 import { ReactiveFormsDemoComponent } from './components/reactive-forms-demo/reactive-forms-demo.component';
+import { NgxFormValidationComponent } from './components/ngx-form-validation/ngx-form-validation.component';
 import { NgxFormValidationsModule } from 'ngx-form-validations';
+import { NgxFormValidationsConfig } from 'ngx-form-validations';
+import { CustomNgxFormValidationsConfig } from 'src/core/validation/custom-ngx-form-validation.config';
+
+import { MaterialModule } from './material.module';
+
 
 @NgModule({
     declarations: [
@@ -99,7 +105,8 @@ import { NgxFormValidationsModule } from 'ngx-form-validations';
         ExampleDirective,
         DirectiveDemoComponent,
         FormSubmitOnKeypressComponent,
-        ReactiveFormsDemoComponent
+        ReactiveFormsDemoComponent,
+        NgxFormValidationComponent
 
     ],
     imports: [
@@ -151,9 +158,13 @@ import { NgxFormValidationsModule } from 'ngx-form-validations';
         ReactiveFormsModule,
         HttpClientModule,
         CommonModule,
-        NgxFormValidationsModule
+        NgxFormValidationsModule,
+        MaterialModule
     ],
-    providers: [],
+    providers: [{
+        provide: NgxFormValidationsConfig,
+        useValue: CustomNgxFormValidationsConfig
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
