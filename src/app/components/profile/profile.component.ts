@@ -37,16 +37,8 @@ export class ProfileComponent implements OnInit {
   }
 
   logout(): void {
-
-    this.router.navigate(['/home']);
-
     this.afAuth.signOut();
     window.location.reload();
-
-    /* setTimeout(() => {
-
-    }, 200); */
-
   }
 
 }

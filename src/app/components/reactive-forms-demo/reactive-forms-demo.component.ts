@@ -70,9 +70,6 @@ export class ReactiveFormsDemoComponent implements OnInit {
   formObj:[];
 
   login() {
-
-
-
     console.log('Email: ', this.loginForm.value.email);
     console.log('Password: ', this.loginForm.value.password);
 
@@ -84,6 +81,11 @@ export class ReactiveFormsDemoComponent implements OnInit {
   // or use <a href="https://appdividend.com/2018/01/20/angular-services-tutorial-example-scratch/">Angular service</a> and call that service’s
   // function here and pass the form values as function parameters.
 
+  }
+
+  logout(): void {
+    this.afAuth.signOut();
+    window.location.reload();
   }
 
 }

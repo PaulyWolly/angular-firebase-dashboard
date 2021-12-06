@@ -73,4 +73,10 @@ export class NgxFormValidationComponent {
   resetForm(ngForm: FormGroupDirective) {
     ngForm.resetForm();
   }
+
+  logout(): void {
+    this.afAuth.signOut();
+    window.location.reload();
+  }
+
 }

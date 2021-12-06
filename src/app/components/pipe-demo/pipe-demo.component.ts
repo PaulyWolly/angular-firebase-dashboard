@@ -41,15 +41,7 @@ export class PipeDemoComponent implements OnInit {
     }
 
     logout(): void {
-
-      this.router.navigate(['/home']);
-
       this.afAuth.signOut();
       window.location.reload();
-
-      /* setTimeout(() => {
-
-      }, 200); */
-
     }
 }

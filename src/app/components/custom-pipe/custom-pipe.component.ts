@@ -31,4 +31,9 @@ export class CustomPipeComponent implements OnInit {
 
   }
 
+  logout(): void {
+    this.afAuth.signOut();
+    window.location.reload();
+  }
+
 }

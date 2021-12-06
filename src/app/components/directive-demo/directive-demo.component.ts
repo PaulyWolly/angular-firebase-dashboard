@@ -44,4 +44,9 @@ export class DirectiveDemoComponent implements OnInit {
     )
   }
 
+  logout(): void {
+    this.afAuth.signOut();
+    window.location.reload();
+  }
+
 }

@@ -52,8 +52,11 @@ export class FormSubmitOnKeypressComponent implements OnInit {
       console.log(event);
       alert('Backspace Key pressed');
     }
+  }
 
-
+  logout(): void {
+    this.afAuth.signOut();
+    window.location.reload();
   }
 
 }
