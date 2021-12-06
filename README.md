@@ -1,3 +1,5 @@
+# AngularFirebaseDashboard is now hosted on AWS here: http://aws-angular1.s3-website-us-west-1.amazonaws.com/home
+
 # AngularFirebaseDashboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
