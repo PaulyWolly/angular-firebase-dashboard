@@ -1,10 +1,10 @@
-# AngularFirebaseDashboard is ALSO hosted on AWS via a s3 bucket here: 
-
-http://pw-angular-dashboard.s3-website-us-west-1.amazonaws.com
-
 # AngularFirebaseDashboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
+
+## AngularFirebaseDashboard is ALSO hosted on AWS via a s3 bucket here: 
+
+http://pw-angular-dashboard.s3-website-us-west-1.amazonaws.com
 
 ## Development server
 
