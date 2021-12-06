@@ -1,6 +1,6 @@
 # AngularFirebaseDashboard is now hosted on AWS here: 
 
-http://aws-angular1.s3-website-us-west-1.amazonaws.com/home
+http://aws-angular1.s3-website-us-west-1.amazonaws.com
 
 # AngularFirebaseDashboard
 
