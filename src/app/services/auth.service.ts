@@ -32,51 +32,51 @@ export class AuthService {
 
     async loginUser(email: string, password: string): Promise<any> {
         try {
-        await this.afAuth.signInWithEmailAndPassword(email, password);
-        console.log('Auth Service: loginUser: success');
-      } catch (error) {
-        console.log('Auth Service: login error...');
-        console.log('error code', error.code);
-        console.log('error', error);
-        if (error.code)
-          return { isValid: false, message: error.message };
-      }
+          await this.afAuth.signInWithEmailAndPassword(email, password);
+          console.log('Auth Service: loginUser: success');
+        } catch (error) {
+          console.log('Auth Service: login error...');
+          console.log('error code', error.code);
+          console.log('error', error);
+          if (error.code)
+            return { isValid: false, message: error.message };
+        }
     }
 
     async signupUser(user: any): Promise<any> {
         try {
-        const result = await this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
-        let emailLower = user.email.toLowerCase();
+          const result = await this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
+          let emailLower = user.email.toLowerCase();
 
-        this.afs.doc('/users/' + emailLower)
-          // on a successful signup, create a document in 'users' collection with the new user's info
-          .set({
-            accountType: 'endUser',
-            displayName: user.displayName,
-            displayName_lower: user.displayName.toLowerCase(),
-            email: user.email,
-            email_lower: emailLower
-          });
+          this.afs.doc('/users/' + emailLower)
+            // on a successful signup, create a document in 'users' collection with the new user's info
+            .set({
+              accountType: 'endUser',
+              displayName: user.displayName,
+              displayName_lower: user.displayName.toLowerCase(),
+              email: user.email,
+              email_lower: emailLower
+            });
 
-        result.user.sendEmailVerification();
-      } catch (error) {
-        console.log('Auth Service: signup error', error);
-        if (error.code)
-          return { isValid: false, message: error.message };
-      }
+          result.user.sendEmailVerification();
+        } catch (error) {
+          console.log('Auth Service: signup error', error);
+          if (error.code)
+            return { isValid: false, message: error.message };
+        }
     }
 
     async resetPassword(email: string): Promise<any> {
         try {
-        await this.afAuth.sendPasswordResetEmail(email);
-        console.log('Auth Service: reset password success');
-      } catch (error) {
-        console.log('Auth Service: reset password error...');
-        console.log(error.code);
-        console.log(error);
-        if (error.code)
-          return error;
-      }
+          await this.afAuth.sendPasswordResetEmail(email);
+          console.log('Auth Service: reset password success');
+        } catch (error) {
+          console.log('Auth Service: reset password error...');
+          console.log(error.code);
+          console.log(error);
+          if (error.code)
+            return error;
+        }
     }
 
     async resendVerificationEmail() {
@@ -96,15 +96,15 @@ export class AuthService {
 
     async logoutUser(): Promise<void> {
         try {
-        await this.afAuth.signOut();
-        this.router.navigate(['/home']); // when we log the user out, navigate them to home
-      } catch (error) {
-        console.log('Auth Service: logout error...');
-        console.log('error code', error.code);
-        console.log('error', error);
-        if (error.code)
-          return error;
-      }
+          await this.afAuth.signOut();
+          this.router.navigate(['/home']); // when we log the user out, navigate them to home
+        } catch (error) {
+          console.log('Auth Service: logout error...');
+          console.log('error code', error.code);
+          console.log('error', error);
+          if (error.code)
+            return error;
+        }
     }
 
     setUserInfo(payload: object) {

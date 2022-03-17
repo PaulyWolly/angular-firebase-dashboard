@@ -126,17 +126,17 @@
 
 
     <p></p>
-    <p [Highlight]="color">Highlight me! (red default)</p>
+    <p [appHighlight]="color">Highlight me! (red default)</p>
 
-    <p [Highlight]="color" defaultColor="violet">
+    <p [appHighlight]="color" defaultColor="violet">
         Highlight me too! (violet default)
     </p>
 
     <hr />
     <h2>Mouse over the following lines to see fixed highlights</h2>
 
-    <p [Highlight]="'yellow'">Highlighted in yellow</p>
-    <p Highlight="orange">Highlighted in orange</p>
+    <p [appHighlight]="'yellow'">Highlighted in yellow</p>
+    <p appHighlight="orange">Highlighted in orange</p>
 
     <hr />
 
@@ -145,6 +145,6 @@
     <p ngNonBindable>This should not evaluate: {{ 1 + 1 }}</p>
 
     <h3>ngNonBindable with a directive</h3>
-    <div ngNonBindable [Highlight]="'yellow'">This should not evaluate: {{ 1 +1 }}, but will highlight yellow.
+    <div ngNonBindable [appHighlight]="'yellow'">This should not evaluate: {{ 1 +1 }}, but will highlight yellow.
     </div>
 </section>

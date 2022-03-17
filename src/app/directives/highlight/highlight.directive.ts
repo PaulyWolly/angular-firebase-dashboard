@@ -1,30 +1,25 @@
-/* tslint:disable:member-ordering */
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
-selector: '[Highlight]'
+  selector: '[appHighlight]'
 })
-
 export class HighlightDirective {
 
-  @Input() defaultColor: string;
-  @Input('Highlight') highlightColor: string;
+  constructor(private el: ElementRef) { }
 
-  constructor(
-    private el: ElementRef
-    ) { }
+  @Input() defaultColor = '';
 
+  @Input() appHighlight = '';
 
   @HostListener('mouseenter') onMouseEnter() {
-    this.highlight(this.highlightColor || this.defaultColor || 'red');
+    this.highlight(this.appHighlight || this.defaultColor || 'red');
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-    this.highlight(null);
+    this.highlight('');
   }
 
   private highlight(color: string) {
     this.el.nativeElement.style.backgroundColor = color;
   }
-
 }
