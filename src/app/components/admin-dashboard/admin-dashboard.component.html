@@ -7,28 +7,29 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" alt="Go to Home"><span
-                            title="Go to Home ">Home</span>
-                        <span>&nbsp;&nbsp;|</span></a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link active home" aria-current="page" href="#" alt="Go to Home"><span
+                        title="Go to Home ">Home</span>
+                    <span>&nbsp;|</span></a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page">Admin Dashboard</a>
-                </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li> -->
-            </ul>
+            <li class="nav-item">
+                <a class="nav-link active dashboard" aria-current="page"><span
+                        class="dashboard">Admin Dashboard</span></a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li> -->
+          </ul>
             <ul class="navbar-nav">
                 <li>
                     <form style="height: 30px;margin-right: auto" class="d-flex">
                         <mat-card style="height: 30px;" *ngIf="(afAuth.user | async)">
                             <mat-icon class="checkCircle">check_circle</mat-icon>
 
-                            <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Logged in as:
+                            <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Welcome:
                                 <span *ngIf="(user | async)">{{ (user | async)?.displayName }}</span>
                             </span>
 

@@ -29,7 +29,7 @@
                         <mat-card style="height: 30px;" *ngIf="(afAuth.user | async)">
                             <mat-icon class="checkCircle">check_circle</mat-icon>
 
-                            <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Logged in as:
+                            <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Welcome:
                                 <span *ngIf="(user | async)">{{ (user | async)?.displayName }}</span>
                             </span>
 

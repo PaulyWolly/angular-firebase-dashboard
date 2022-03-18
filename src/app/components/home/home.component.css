@@ -25,3 +25,7 @@ body {
     position: relative;
     right: 20px;
 }
+
+.nav-link.active.home {
+  font-size: 35px;
+}

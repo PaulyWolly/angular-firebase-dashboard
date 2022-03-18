@@ -24,7 +24,7 @@ body {
 .nav-link {
     /*font-family: 'Comforter Brush', cursive;*/
     font-family: 'Shadows Into Light', cursive;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
 
 }
@@ -39,11 +39,15 @@ body {
 .nav-link.verify-email, .nav-link.dashboard, .nav-link.admin-dashboard,
 .nav-link.login, .nav-link.reactive-forms, .nav-link.form-submit-keypress,
 .nav-link.directive-demo, .nav-link.ngx-form-validation  {
-    font-size: 30px;
+    font-size: 26px;
     color:rgb(158, 158, 158);
     font-weight: bolder;
     position: relative;
     right: 20px;
+}
+.nav-link.active.home {
+  font-size: 35px;
+  margin-bottom: 1px;;
 }
 
 .forgot-password, .profile, .menu, .verify-email, .dashboard, .admin-dashboard, .login,
