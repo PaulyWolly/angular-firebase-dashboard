@@ -1,0 +1,7 @@
+<div style="display: flex;">
+  Menu
+  <span class="arrow">
+    <mat-icon *ngIf="!showMore" (click)="showResult(value)">expand_more</mat-icon>
+    <mat-icon *ngIf="showMore" (click)="hideResult(value)">expand_less</mat-icon>
+  </span>
+</div>

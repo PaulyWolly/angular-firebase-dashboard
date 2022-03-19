@@ -30,6 +30,10 @@ export class AdminDashboardComponent implements OnInit {
         });
     }
 
+    changeArrow(): void {
+      console.log('switch arrow')
+    }
+
     logout(): void {
         this.afAuth.signOut();
         window.location.reload();

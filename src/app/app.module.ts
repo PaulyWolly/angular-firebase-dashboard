@@ -80,6 +80,7 @@ import { NgxFormValidationsConfig } from 'ngx-form-validations';
 import { CustomNgxFormValidationsConfig } from 'src/core/validation/custom-ngx-form-validation.config';
 
 import { MaterialModule } from './material.module';
+import { MenuArrowComponent } from './components/menu-arrow/menu-arrow.component';
 
 
 @NgModule({
@@ -106,7 +107,8 @@ import { MaterialModule } from './material.module';
         DirectiveDemoComponent,
         FormSubmitOnKeypressComponent,
         ReactiveFormsDemoComponent,
-        NgxFormValidationComponent
+        NgxFormValidationComponent,
+        MenuArrowComponent
 
     ],
     imports: [

@@ -17,6 +17,7 @@ import { FormSubmitOnKeypressComponent } from './components/form-submit-on-keypr
 import { NgxFormValidationComponent } from './components/ngx-form-validation/ngx-form-validation.component';
 
 import { AuthGuard } from './services/auth.guard';
+import { MenuArrowComponent } from './components/menu-arrow/menu-arrow.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'signup', component: SignupComponent },
   {path: 'verify-email', component: VerifyEmailComponent },
+  {path: 'menu-arrow', component: MenuArrowComponent },
   {path: '**', component: HomeComponent }
 ];
 @NgModule({

@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
     user: Observable<any>;
+    showMore: Boolean = false;
 
     constructor(
       public afAuth: AngularFireAuth,
@@ -32,6 +33,22 @@ export class HomeComponent implements OnInit {
             }
         });
 
+    }
+
+    changeArrow(): void {
+      console.log('switch arrow')
+    }
+
+    showResult(){
+      this.showMore = true;
+    }
+
+    hideResult() {
+      this.showMore = false;
+    }
+
+    toggleResult() {
+      this.showMore  ? false : true;
     }
 
     logout(): void {
