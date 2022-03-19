@@ -11,8 +11,10 @@ import { Directive, ElementRef, Renderer2, HostListener } from '@angular/core';
 })
 export class DirectiveDemoComponent implements OnInit {
 
+  // variables
   user: Observable<any>;
   color: string;
+  showMore: boolean = false;
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -43,6 +45,15 @@ export class DirectiveDemoComponent implements OnInit {
       color
     )
   }
+
+  showResult(){
+    this.showMore = true;
+  }
+
+  hideResult() {
+    this.showMore = false;
+  }
+
 
   logout(): void {
     this.afAuth.signOut();

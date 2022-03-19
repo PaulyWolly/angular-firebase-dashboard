@@ -19,6 +19,7 @@ export class PipeDemoComponent implements OnInit {
     sentence: string;
     outPut: any;
     output: any;
+    showMore: boolean = false;
 
     constructor(
       public afAuth: AngularFireAuth,
@@ -39,6 +40,15 @@ export class PipeDemoComponent implements OnInit {
         });
 
     }
+
+    showResult(){
+      this.showMore = true;
+    }
+
+    hideResult() {
+      this.showMore = false;
+    }
+
 
     logout(): void {
       this.afAuth.signOut();

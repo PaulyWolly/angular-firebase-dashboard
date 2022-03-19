@@ -14,6 +14,7 @@ export class HighlightTestComponent implements OnInit {
 
   color: string;
   user: Observable<any>;
+  showMore: boolean = false;
 
   constructor(public afAuth: AngularFireAuth,
               public firestore: AngularFirestore,
@@ -30,6 +31,13 @@ export class HighlightTestComponent implements OnInit {
             this.user = this.firestore.collection('users').doc(emailLower).valueChanges();
         }
       });
+  }
+  showResult(){
+    this.showMore = true;
+  }
+
+  hideResult() {
+    this.showMore = false;
   }
 
   logout(): void {

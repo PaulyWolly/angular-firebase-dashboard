@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
 
   user: Observable<any>;
   type: string;
+  showMore: boolean = false;
 
   email = 'pwelby@gmail.com';
   website = 'https://www.i-am-paulwelby.com';
@@ -34,6 +35,14 @@ export class ProfileComponent implements OnInit {
             this.user = this.firestore.collection('users').doc(emailLower).valueChanges();
         }
     });
+  }
+
+  showResult(){
+    this.showMore = true;
+  }
+
+  hideResult() {
+    this.showMore = false;
   }
 
   logout(): void {

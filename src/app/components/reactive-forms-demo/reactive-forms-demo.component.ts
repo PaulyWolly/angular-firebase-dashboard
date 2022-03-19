@@ -29,6 +29,8 @@ export class ReactiveFormsDemoComponent implements OnInit {
   website = 'https://www.i-am-paulwelby.com';
   phone = '619-629-3770';
 
+  showMore: boolean = false;
+
   constructor(
     public afAuth: AngularFireAuth,
     public firestore: AngularFirestore,
@@ -81,6 +83,14 @@ export class ReactiveFormsDemoComponent implements OnInit {
   // or use <a href="https://appdividend.com/2018/01/20/angular-services-tutorial-example-scratch/">Angular service</a> and call that service’s
   // function here and pass the form values as function parameters.
 
+  }
+
+  showResult(){
+    this.showMore = true;
+  }
+
+  hideResult() {
+    this.showMore = false;
   }
 
   logout(): void {

@@ -13,6 +13,7 @@ export class NgxFormValidationComponent {
   testForm: FormGroup;
   testForm2: FormGroup;
   user: Observable<any>;
+  showMore: boolean = false;
 
   title = 'Ngx-Form-Validation';
 
@@ -77,6 +78,14 @@ export class NgxFormValidationComponent {
   logout(): void {
     this.afAuth.signOut();
     window.location.reload();
+  }
+
+  showResult(){
+    this.showMore = true;
+  }
+
+  hideResult() {
+    this.showMore = false;
   }
 
 }

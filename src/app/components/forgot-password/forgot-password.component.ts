@@ -18,6 +18,7 @@ export class ForgotPasswordComponent implements OnInit {
     isProgressVisible: boolean;
     forgotPasswordForm: FormGroup;
     firebaseErrorMessage: string;
+    showMore: boolean = false;
 
     user: Observable<any>;
 
@@ -79,6 +80,14 @@ export class ForgotPasswordComponent implements OnInit {
                 this.firebaseErrorMessage = result.message;
             }
         });
+    }
+
+    showResult(){
+      this.showMore = true;
+    }
+
+    hideResult() {
+      this.showMore = false;
     }
 
 }

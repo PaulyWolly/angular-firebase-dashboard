@@ -11,7 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
 
-    user: Observable<any>;
+  showMore: boolean = false;
+  user: Observable<any>;
     // Example: store the user's info here (Cloud Firestore: collection is 'users', docId is the user's email, lower case)this.afAuth.currentUser
 
     constructor(
@@ -30,6 +31,14 @@ export class DashboardComponent implements OnInit {
                 this.user = this.firestore.collection('users').doc(emailLower).valueChanges();
             }
         });
+    }
+
+    showResult(){
+      this.showMore = true;
+    }
+
+    hideResult() {
+      this.showMore = false;
     }
 
     logout(): void {

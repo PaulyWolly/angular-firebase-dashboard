@@ -45,18 +45,15 @@
                 </div> -->
                 <li *ngIf="(user | async)" class="nav-item dropdown">
                   <a *ngIf="(user | async)"
-
                       href="#"
                       id="navbarDropdown"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                   >
-                  <!-- ngbDropdownToggle class="nav-link dropdown-toggle"  -->
                     <span class="arrow">
-
-                      <i *ngIf="!showMore" (click)="showResult()"><img style="height: 32px; width:90px" src="../../../assets/img/menuDownArrow.png" alt="down arrow"></i>
-                      <i *ngIf="showMore" (click)="hideResult()"><img style="height: 32px; width:90px" src="../../../assets/img/menuUpArrow.png" alt="up arrow"></i>
+                      <i *ngIf="!showMore" (click)="showResult()"><img style="height: 32px; width:100px" src="../../../assets/img/menuDownArrow.png" alt="down arrow"></i>
+                      <i *ngIf="showMore" (click)="hideResult()"><img style="height: 32px; width:100px" src="../../../assets/img/menuUpArrow.png" alt="up arrow"></i>
                     </span>
                   </a>
 

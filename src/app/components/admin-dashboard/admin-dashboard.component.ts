@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class AdminDashboardComponent implements OnInit {
 
     user: Observable<any>;
+    showMore: boolean = false;
     // Example: store the user's info here (Cloud Firestore: collection is 'users', docId is the user's email, lower case)
 
     constructor(
@@ -28,6 +29,14 @@ export class AdminDashboardComponent implements OnInit {
                 this.user = this.firestore.collection('users').doc(emailLower).valueChanges();      // get the user's doc in Cloud Firestore
             }
         });
+    }
+
+    showResult(){
+      this.showMore = true;
+    }
+
+    hideResult() {
+      this.showMore = false;
     }
 
     changeArrow(): void {

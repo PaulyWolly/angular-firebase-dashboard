@@ -13,6 +13,7 @@ export class FormSubmitOnKeypressComponent implements OnInit {
   msg: any = 'Enter something';
   myForm: any;
   user: Observable<any>
+  showMore: boolean = false;
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -52,6 +53,14 @@ export class FormSubmitOnKeypressComponent implements OnInit {
       console.log(event);
       alert('Backspace Key pressed');
     }
+  }
+
+  showResult(){
+    this.showMore = true;
+  }
+
+  hideResult() {
+    this.showMore = false;
   }
 
   logout(): void {

@@ -18,6 +18,7 @@ export class VerifyEmailComponent implements OnInit {
     mailSent: boolean;
     isProgressVisible: boolean;
     firebaseErrorMessage: string;
+    showMore: boolean = false;
 
     user: Observable<any>;
 
@@ -65,6 +66,14 @@ export class VerifyEmailComponent implements OnInit {
                 this.firebaseErrorMessage = result.message;
             }
         });
+    }
+
+    showResult(){
+      this.showMore = true;
+    }
+
+    hideResult() {
+      this.showMore = false;
     }
 
 }
