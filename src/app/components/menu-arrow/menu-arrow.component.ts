@@ -41,4 +41,9 @@ export class MenuArrowComponent implements OnInit {
     this.showMore = false;
   }
 
+  logout(): void {
+    this.afAuth.signOut();
+    window.location.reload();
+}
+
 }
