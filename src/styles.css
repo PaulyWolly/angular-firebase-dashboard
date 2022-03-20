@@ -120,9 +120,20 @@ input:focus::placeholder {
     color: transparent;
 }
 
-span.arrow {
+.arrow {
   position: relative;
-  top: 1px;
-  margin-left: 10px;
+  bottom: 15px;
+  right: 12px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.menu-btn {
+  position: relative;
+  left: 10px;
+}
+
+.dropdown-menu.show {
+  display: block;
+  position: absolute !important;
+  right: -1px !important;
 }

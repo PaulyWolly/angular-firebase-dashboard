@@ -17,7 +17,7 @@
             </ul>
             <ul class="navbar-nav">
                 <li>
-                    <form style="height: 30px;margin-right: auto" class="d-flex">
+                    <form style="height: 30px;margin-right: 10px" class="d-flex">
                         <mat-card style="height: 30px;" *ngIf="(afAuth.user | async)">
                             <mat-icon class="checkCircle">check_circle</mat-icon>
 
@@ -44,21 +44,21 @@
                     </div>
                 </div> -->
                 <li *ngIf="(user | async)" class="nav-item dropdown">
-                  <a *ngIf="(user | async)"
-                      href="#"
-                      id="navbarDropdown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                  >
-                    <span class="arrow">
-                      <i *ngIf="!showMore" (click)="showResult()"><img style="height: 32px; width:100px" src="../../../assets/img/menuDownArrow.png" alt="down arrow"></i>
-                      <i *ngIf="showMore" (click)="hideResult()"><img style="height: 32px; width:100px" src="../../../assets/img/menuUpArrow.png" alt="up arrow"></i>
-                    </span>
-                  </a>
-
-
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <form style="height: 30px;margin-right: auto" class="menu-btn d-flex">
+                    <mat-card style="height: 30px; width: 92px">
+                    <a *ngIf="(user | async)"
+                        href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                      <span class="arrow">
+                        <i *ngIf="!showMore" (click)="showResult()"><img style="height: 30px; width:83px" src="../../../assets/img/down-arrow-white.png" alt="down arrow"></i>
+                        <i *ngIf="showMore" (click)="hideResult()"><img style="height: 30px; width:83px" src="../../../assets/img/up-arrow-white.png" alt="up arrow"></i>
+                      </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                       <li><button class="dropdown-item" routerLink="/profile"><img class="imageIcon profile"
                                   src="../../../assets/img/person-circle.svg" person-circle.svg width="17" height="20"
                                   alt=""> Profile </button></li>
@@ -73,6 +73,10 @@
                                   src="../../../assets/img/door-open-fill.svg" door-open-fill.svg width="17"
                                   height="17" alt=""> Logout</button></li>
                   </ul>
+                  </mat-card>
+                  </form>
+
+
                 </li>
 
             </ul>
