@@ -1,7 +1,84 @@
-<div style="display: flex;">
+<!-- <div style="display: flex;">
   Menu
   <span class="arrow">
     <mat-icon *ngIf="!showMore" (click)="showResult(value)">expand_more</mat-icon>
     <mat-icon *ngIf="showMore" (click)="hideResult(value)">expand_less</mat-icon>
   </span>
-</div>
+</div> -->
+<ul class="navbar-nav">
+    <li *ngIf="(user | async)" class="nav-item dropdown">
+    <form style="height: 30px;margin-right: auto" class="menu-btn d-flex">
+      <mat-card style="height: 30px; width: 92px">
+        <a *ngIf="(user | async)"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+        >
+          <span class="arrow">
+            <i *ngIf="!showMore" (click)="showResult()"><img style="height: 30px; width:83px" src="../../../assets/img/down-arrow-white.png" alt="down arrow"></i>
+            <i *ngIf="showMore" (click)="hideResult()"><img style="height: 30px; width:83px" src="../../../assets/img/up-arrow-white.png" alt="up arrow"></i>
+          </span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <li><button class="dropdown-item" routerLink="/profile"><img class="imageIcon profile"
+                      src="../../../assets/img/person-circle.svg" person-circle.svg width="17" height="20"
+                      alt=""> Profile </button></li>
+          <li><button class="dropdown-item" routerLink="/home">
+                      <img class="imageIcon house-fill"
+                      src="../../../assets/img/house-fill-green.png" width="17" height="20"
+                      alt="">
+                       Go Home </button>
+          </li>
+
+          <li>
+              <hr class="dropdown-divider">
+          </li>
+
+          <li><button class="dropdown-item" routerLink="/highlight-test"><img
+                      src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                  Highlight test </button></li>
+          <li>
+
+          <li><button class="dropdown-item" routerLink="/pipe-demo"><img
+                      src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                  Pipes Demo </button></li>
+          <li>
+
+          <li><button class="dropdown-item" routerLink="/directive-demo"><img
+                      src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                  Directives Demo </button></li>
+          <li>
+
+          <li><button class="dropdown-item" routerLink="/submit-keypress"><img
+                      src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                  Submit on Keypress </button></li>
+          <li>
+
+          <li><button class="dropdown-item" routerLink="/reactive-form"><img
+                      src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                  Reactive Form </button></li>
+          <li>
+
+          <li><button class="dropdown-item" routerLink="/ngx-form-validation"><img
+                      src="../../../assets/img/display.svg" display.svg width="17" height="17" alt="">
+                  Ngx Form Validation </button></li>
+          <li>
+
+
+          <li>
+              <hr class="dropdown-divider">
+          </li>
+
+          <li><button class="dropdown-item logoutPointer" (click)="logout()"><img class="imageIcon logout"
+                      src="../../../assets/img/door-open-fill.svg" door-open-fill.svg width="17"
+                      height="17" alt=""> Logout</button>
+          </li>
+        </ul>
+      </mat-card>
+    </form>
+
+  </li>
+</ul>
+

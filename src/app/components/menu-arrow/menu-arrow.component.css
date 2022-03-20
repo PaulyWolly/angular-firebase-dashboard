@@ -2,3 +2,23 @@
   display:inline-flex;
   cursor: pointer;
 }
+
+.menu-btn {
+  position: relative;
+  left: 20px;
+  display:flex;
+}
+
+.dropdown-menu.show {
+  display: block;
+  position: absolute !important;
+  right: -1px !important;
+  width: auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.imageIcon.house-fill {
+  color: green;
+  fill: #1ca406;
+}
+
