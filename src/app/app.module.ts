@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -81,7 +82,8 @@ import { CustomNgxFormValidationsConfig } from 'src/core/validation/custom-ngx-f
 
 import { MaterialModule } from './material.module';
 import { MenuArrowComponent } from './components/menu-arrow/menu-arrow.component';
-
+import { NewsletterComponent } from './pages/newsletter/newsletter.component';
+import { NewsletterModalComponent } from './pages/newsletter-modal/newsletter-modal.component';
 
 @NgModule({
     declarations: [
@@ -108,7 +110,9 @@ import { MenuArrowComponent } from './components/menu-arrow/menu-arrow.component
         FormSubmitOnKeypressComponent,
         ReactiveFormsDemoComponent,
         NgxFormValidationComponent,
-        MenuArrowComponent
+        MenuArrowComponent,
+        NewsletterComponent,
+        NewsletterModalComponent
 
     ],
     imports: [

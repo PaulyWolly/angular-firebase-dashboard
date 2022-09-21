@@ -44,6 +44,7 @@ export class AuthService {
     }
 
     async signupUser(user: any): Promise<any> {
+      console.log("user object: -----> ", user);
         try {
           const result = await this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
           let emailLower = user.email.toLowerCase();
@@ -51,7 +52,7 @@ export class AuthService {
           this.afs.doc('/users/' + emailLower)
             // on a successful signup, create a document in 'users' collection with the new user's info
             .set({
-              accountType: 'endUser',
+              accountType: user.accountType,
               displayName: user.displayName,
               displayName_lower: user.displayName.toLowerCase(),
               email: user.email,

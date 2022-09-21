@@ -1,0 +1,47 @@
+.AmpSize {
+    font-size: 24px;
+    margin-left: 5px;
+}
+
+.fbLogo {
+    margin-left: 8px;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;*/
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    margin-bottom: 40px;
+}
+
+.data-table {
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 1%;
+}
+
+th {
+    border-top: 0;
+}
+
+.add-user-button {
+    margin-left: 5px;
+    color: green;
+}
+
+.goBack-link {
+    float: right;
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+    right: 8px;
+    height: 24px;
+    width: 24px;
+}
+
+.action-buttons {
+    position: relative;
+    left: 30px
+}
