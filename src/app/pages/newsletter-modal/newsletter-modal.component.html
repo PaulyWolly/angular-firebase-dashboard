@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <div id="exampleDialog" #mydialog class="dialog newsletter-dialog" tabindex="-1">
+        <div class="dialog-dialog">
+
+          <div class="dialog-content">
+                <div style="background-color: cadetblue;" class="dialog-header">
+                    <h4
+                        style="color:#fff;padding-top:20px;font-weight: 700;"
+                        class="dialog-title">Sign up for our Newsletter
+                    </h4>
+                    <!-- <button
+                        #btnClose
+                        id="btnClose"
+                        type="button"
+                        class="px-mt-4 btn-close box-shadow"
+                        data-bs-dismiss="dialog"
+                        (click)="close()"
+                        aria-label="Close">
+                    </button> -->
+                </div>
+
+                  <div class="dialog-body">
+                      <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">Name</label>
+                          <input type="text" [(ngModel)]="name" class="form-control" id="exampleFormControlInput1" placeholder="enter name">
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleFormControlTextarea1" class="form-label">Personal Info</label>
+                          <textarea [(ngModel)]="personalInfo" class="form-control"  placeholder="enter some personal info" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleFormControlTextarea1" class="form-label">Email</label>
+                          <input [(ngModel)]="email" class="form-control"  placeholder="enter email" id="exampleFormControlTextarea1" rows="3" />
+                      </div>
+
+                        <!-- <div class="form-control"  placeholder="timestamp" id="timestamp" ></div> -->
+
+                  </div>
+                  <div class="d-flex dialog-footer">
+                    <button type="button" (click)="close()" class="btn btn-secondary" data-bs-dismiss="dialog">Close</button>
+                    &nbsp;<button type="button" (click)="add()" class="btn btn-primary">Save changes</button>
+                  </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+
+
+<!-- //Quick example -->
+<!--output 'Jun 15, 2015, 9:03:01 AM'-->
+<!-- <div>{{myObj.timestamp.seconds * 1000 | date:'medium'}}</div> -->
+
+<!-- /*
+Pre-defined format options
+
+Examples are given in en-US locale.
+
+'short': equivalent to 'M/d/yy, h:mm a' (6/15/15, 9:03 AM).
+'medium': equivalent to 'MMM d, y, h:mm:ss a' (Jun 15, 2015, 9:03:01 AM).
+'long': equivalent to 'MMMM d, y, h:mm:ss a z' (June 15, 2015 at 9:03:01 AM GMT+1).
+'full': equivalent to 'EEEE, MMMM d, y, h:mm:ss a zzzz' (Monday, June 15, 2015 at 9:03:01 AM GMT+01:00).
+'shortDate': equivalent to 'M/d/yy' (6/15/15).
+'mediumDate': equivalent to 'MMM d, y' (Jun 15, 2015).
+'longDate': equivalent to 'MMMM d, y' (June 15, 2015).
+'fullDate': equivalent to 'EEEE, MMMM d, y' (Monday, June 15, 2015).
+'shortTime': equivalent to 'h:mm a' (9:03 AM).
+'mediumTime': equivalent to 'h:mm:ss a' (9:03:01 AM).
+'longTime': equivalent to 'h:mm:ss a z' (9:03:01 AM GMT+1).
+'fullTime': equivalent to 'h:mm:ss a zzzz' (9:03:01 AM GMT+01:00).
+
+*/ -->

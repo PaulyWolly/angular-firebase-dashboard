@@ -64,7 +64,7 @@ export class SignupComponent implements OnInit {
             this.isProgressVisible = false;
             // no matter what, when the auth service returns, we hide the progress indicator
 
-      }).catch(() => {
+        }).catch(() => {
             this.isProgressVisible = false;
         });
     }

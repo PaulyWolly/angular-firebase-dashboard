@@ -1,0 +1,177 @@
+import { HttpClient } from '@angular/common/http';
+import { Component, AfterViewInit, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { animate, state, style, transition, trigger} from '@angular/animations';
+
+export interface Newsletter {
+  id: any;
+  name: any;
+  email: any;
+  personalInfo: any;
+  editObj: any;
+}
+
+@Component({
+  selector: 'app-newsletter',
+  templateUrl: './newsletter.component.html',
+  styleUrls: ['./newsletter.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
+})
+export class NewsletterComponent implements OnInit {
+
+  isShown: boolean = false;
+  showNewsLink: boolean = false;
+
+//  dataSource : any;
+//   id : any;
+//   name : any;
+//   email: any;
+//   personalInfo : any;
+//   editObj : any;
+
+  @ViewChild('btnShow')
+  btnShow!: ElementRef;
+  @ViewChild('btnClose')
+  btnClose!: ElementRef;
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+// MatPaginator Output
+// MatPaginator Output
+  pageEvent!: PageEvent;
+  pageSize = 3;
+  pageSizeOptions: number[] = [3, 5, 7, 10, 20];
+  newsletter: Newsletter[] = [];
+  expandedElement:any;
+
+  displayedColumns: string[] = ['Id', 'Name', 'PersonalInfo', 'editObj'];
+  dataSource: MatTableDataSource<any> = new MatTableDataSource()
+
+  @ViewChild(MatSort)
+  sort!: MatSort;
+  editObj!: {
+    id: any;
+    name: string;
+    personalInfo: string;
+    email: any;
+  };
+  name!: string;
+  personalInfo!: string;
+  email!: string;
+  id!: number;
+
+  constructor(
+    private store: AngularFirestore,
+    public afAuth: AngularFireAuth,
+    private route: Router,
+    private http: HttpClient
+  ){}
+
+  ngOnInit(){
+    this.getAll();
+    this.afAuth.onAuthStateChanged((user) => {
+          // set up a subscription to always know the login status of the user
+            if (user && user.email === 'pwelby@gmail.com') {
+              console.log('Newsletter table showing');
+              this.isShown = !this.isShown;
+            } else {
+              this.isShown = this.isShown;
+              console.log('Newsletter table hidden');
+              this.openDialog();
+            }
+
+    });
+  }
+
+  openDialog(){
+    this.btnShow.nativeElement.click();
+  }
+
+  closeDialog(){
+    this.btnClose.nativeElement.click();
+  }
+
+  clearEdit(){
+    //this.editObj = '';
+    this.name = "";
+    this.personalInfo = "";
+    this.email = "";
+  }
+
+  add(){
+    if(this.editObj){
+      this.store.collection('list')
+        .doc(this.editObj.id)
+        .update({name : this.name, personalInfo : this.personalInfo, email : this.email});
+    } else {
+      this.store.collection('list')
+        .add({name : this.name, personalInfo : this.personalInfo, email : this.email});
+    }
+    this.closeDialog();
+
+    // what happens after dialog closes
+    this.afAuth.onAuthStateChanged((user) => {
+      // set up a subscription to always know the login status of the user
+        if (user && user.email === 'pwelby@gmail.com') {
+          // do nothing
+          setTimeout(("alert('as an auth user, Your Newsletter info was saved'); ") , 0)
+        } else {
+
+          this.route.navigate(['/Login']);
+          setTimeout(("alert('Your Newsletter info was saved'); ") , 0)
+          this.closeDialog();
+        }
+
+    });
+  }
+
+  edit(id : string){
+    this.store.collection('list')
+      .doc(id)
+      .get()
+      .subscribe((response) => {
+        this.editObj = Object.assign({id : response.id}, response.data(), response.data());
+        this.name = this.editObj.name;
+        this.personalInfo = this.editObj.personalInfo;
+        this.email = this.editObj.email;
+        this.openDialog();
+      })
+  }
+
+  delete(id : string){
+    const result = confirm('Are you sure you wish to delete?');
+    if (result) {
+      this.store.collection('list').doc(id).delete();
+    }
+  }
+
+  getAll(){
+    this.store.collection('list')
+      .snapshotChanges()
+      .subscribe((response) => {
+        this.dataSource = response.map(item => {
+          return Object.assign({id : item.payload.doc.id}, item.payload.doc.data())
+      });
+    })
+  }
+
+  goBack() {
+    window.history.go(-1);
+  }
+
+  onMatSortChange() {
+    this.dataSource.sort = this.sort;
+  }
+
+}

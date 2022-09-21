@@ -18,6 +18,8 @@ import { NgxFormValidationComponent } from './components/ngx-form-validation/ngx
 
 import { AuthGuard } from './services/auth.guard';
 import { MenuArrowComponent } from './components/menu-arrow/menu-arrow.component';
+import { NewsletterComponent } from './pages/newsletter/newsletter.component';
+import { NewsletterModalComponent } from './pages/newsletter-modal/newsletter-modal.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -36,6 +38,8 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent },
   {path: 'verify-email', component: VerifyEmailComponent },
   {path: 'menu-arrow', component: MenuArrowComponent },
+  {path: 'newsletter', component: NewsletterComponent },
+  {path: 'newsletter-modal', component: NewsletterModalComponent },
   {path: '**', component: HomeComponent }
 ];
 @NgModule({

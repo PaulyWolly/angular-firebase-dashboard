@@ -14,6 +14,7 @@ export class MenuArrowComponent implements OnInit {
 
   user: Observable<any>;
   showMore: Boolean = false;
+  showLink: Boolean = false;
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -26,9 +27,22 @@ export class MenuArrowComponent implements OnInit {
     this.afAuth.authState.subscribe(user => {
       console.log('Dashboard: user', user);
 
-      if (user) {
-          let emailLower = user.email.toLowerCase();
-          this.user = this.firestore.collection('users').doc(emailLower).valueChanges();
+      if (user == null) {
+        console.log("No one logged in")
+      } else if (user != null) {
+
+        let emailLower = user.email.toLowerCase();
+        this.user = this.firestore.collection('users').doc(emailLower).valueChanges();
+
+        console.log("user.email: ", user.email)
+
+        if (user.email.match('pwelby@gmail.com')) {
+          this.showLink = true;
+          console.log("Show Newsletter!")
+        } else {
+          this.showLink = false;
+          console.log("Hide newsletter!")
+        }
       }
     });
   }
