@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -10,15 +10,15 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./ngx-form-validation.component.css']
 })
 export class NgxFormValidationComponent {
-  testForm: FormGroup;
-  testForm2: FormGroup;
+  testForm: UntypedFormGroup;
+  testForm2: UntypedFormGroup;
   user: Observable<any>;
   showMore: boolean = false;
 
   title = 'Ngx-Form-Validation';
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public afAuth: AngularFireAuth,
     public firestore: AngularFirestore
     ) {
@@ -38,7 +38,7 @@ export class NgxFormValidationComponent {
       checkboxes: this.formBuilder.array([]),
   });
 
-    var checkboxFormArray = this.testForm.get('checkboxes') as FormArray;
+    var checkboxFormArray = this.testForm.get('checkboxes') as UntypedFormArray;
     [1, 2].forEach(item => {
       checkboxFormArray.push(this.checkboxFormGroupGenerate());
     });
@@ -53,17 +53,17 @@ export class NgxFormValidationComponent {
     });
   }
 
-  checkboxFormGroupGenerate(): FormGroup {
+  checkboxFormGroupGenerate(): UntypedFormGroup {
     return this.formBuilder.group({
         checked: [false, Validators.requiredTrue]
     });
   }
 
   get formCheckboxDataArray() {
-    return <FormArray>this.testForm.get('checkboxes');
+    return <UntypedFormArray>this.testForm.get('checkboxes');
   }
 
-  onSubmit(form: FormGroup){
+  onSubmit(form: UntypedFormGroup){
       if (form.invalid) {
           return;
       }

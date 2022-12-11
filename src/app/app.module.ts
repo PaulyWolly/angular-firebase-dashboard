@@ -84,6 +84,7 @@ import { MaterialModule } from './material.module';
 import { MenuArrowComponent } from './components/menu-arrow/menu-arrow.component';
 import { NewsletterComponent } from './pages/newsletter/newsletter.component';
 import { NewsletterModalComponent } from './pages/newsletter-modal/newsletter-modal.component';
+import { TablePaginationExample } from './components/table-pagination-example/table-pagination-example';
 
 @NgModule({
     declarations: [
@@ -112,7 +113,8 @@ import { NewsletterModalComponent } from './pages/newsletter-modal/newsletter-mo
         NgxFormValidationComponent,
         MenuArrowComponent,
         NewsletterComponent,
-        NewsletterModalComponent
+        NewsletterModalComponent,
+        TablePaginationExample
 
     ],
     imports: [
@@ -120,11 +122,11 @@ import { NewsletterModalComponent } from './pages/newsletter-modal/newsletter-mo
         AppRoutingModule,
         BrowserAnimationsModule,
 
-        AngularFireModule.initializeApp(environment.firebase),  // imports firebase/app needed for everything
-        AngularFirestoreModule,                                 // imports firebase/firestore, only needed for database features
-        // AngularFireStorageModule,                            // imports firebase/storage only needed for storage features
+        AngularFireModule.initializeApp(environment.firebase),// imports firebase/app needed for everything
+        AngularFirestoreModule,// imports firebase/firestore, only needed for database features
+        // AngularFireStorageModule,// imports firebase/storage only needed for storage features
         AngularFireDatabaseModule,
-
+        NgxFormValidationsModule,
         MatAutocompleteModule,
         MatBadgeModule,
         MatButtonModule,
@@ -164,7 +166,7 @@ import { NewsletterModalComponent } from './pages/newsletter-modal/newsletter-mo
         ReactiveFormsModule,
         HttpClientModule,
         CommonModule,
-        NgxFormValidationsModule,
+
         MaterialModule
     ],
     providers: [{

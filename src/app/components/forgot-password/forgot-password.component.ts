@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service'
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -16,7 +16,7 @@ export class ForgotPasswordComponent implements OnInit {
 
     mailSent: boolean;
     isProgressVisible: boolean;
-    forgotPasswordForm: FormGroup;
+    forgotPasswordForm: UntypedFormGroup;
     firebaseErrorMessage: string;
     showMore: boolean = false;
 
@@ -31,8 +31,8 @@ export class ForgotPasswordComponent implements OnInit {
         this.mailSent = false;
         this.isProgressVisible = false;
 
-        this.forgotPasswordForm = new FormGroup({
-            'email': new FormControl('', [Validators.required, Validators.email])
+        this.forgotPasswordForm = new UntypedFormGroup({
+            'email': new UntypedFormControl('', [Validators.required, Validators.email])
         });
 
         this.firebaseErrorMessage = '';

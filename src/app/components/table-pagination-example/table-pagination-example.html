@@ -1,0 +1,125 @@
+<div class="newsletter-container">
+    <div class="row">
+      <div class="col-lg-1"></div>
+      <div *ngIf="!isShown" class="main-container col-lg-10">
+        <div class="mat-elevation-z8">
+
+        <div class="nav-icons">
+          <div class="addUser-icon">
+            <button
+              type="button"
+              class="btn-style btn-sm btn-light"
+              data-mdb-toggle="modal"
+              data-mdb-target="#exampleModal"
+              (click)="openDialog('add')"
+              title="Add a User"
+            >
+              <!-- <i class="mdi mdi-account"></i> -->
+              <!-- <i class="mdi mdi-account-plus"></i> -->
+              <span class="cloud-plus-icon iconify" data-icon="bi:cloud-plus-fill"></span>
+            </button>
+          </div>
+          <div class="goBack-icon">
+            <img class="goBack-link" (click)="goBack()" width="20px" title="Go Back" height="20px" src="../assets/img/out-door.png" alt="Go Back">
+          </div>
+        </div>
+
+
+        <table
+          mat-table [dataSource]="dataSource"
+          matSort (matSortChange)="announceSortChange($event)"
+          matSortActive="timeStamp"
+          matSortDirection="desc"
+        >
+
+          <!-- Id Column -->
+          <!-- <ng-container matColumnDef="id">
+            <th class="header-label-style" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id"> Id </th>
+            <td mat-cell *matCellDef="let list"> {{list.id}} </td>
+          </ng-container> -->
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th class="header-label-style" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> Name </th>
+            <td mat-cell *matCellDef="let list"> {{list.name}} </td>
+          </ng-container>
+
+          <!-- Email Column -->
+          <ng-container matColumnDef="email">
+            <th class="header-label-style" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by email"> Email </th>
+            <td mat-cell *matCellDef="let list"> {{list.email}} </td>
+          </ng-container>
+
+          <!-- PersonalInfo Column -->
+          <ng-container matColumnDef="personalInfo">
+            <th class="header-label-style" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by personalInfo"> Personal Info </th>
+            <td mat-cell *matCellDef="let list"> {{list.personalInfo}} </td>
+          </ng-container>
+
+          <!-- timeStamp Column -->
+          <ng-container matColumnDef="timeStamp">
+            <th class="header-label-style" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by timeStamp"> Date Entered </th>
+            <td mat-cell *matCellDef="let list"> {{list.timeStamp?.toDate().toLocaleString("en-US", {timeZone: "America/Los_Angeles"})}} </td>
+          </ng-container>
+
+          <!-- actions: editObj -->
+          <ng-container matColumnDef="editObj">
+            <th class="header-label-style" mat-header-cell *matHeaderCellDef>  </th>
+            <td class="edit-icons" mat-cell *matCellDef="let list">
+              <svg style="cursor: pointer;color:darkgreen"  (click)="editUser(list.id)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/><title>Edit Item</title>
+              </svg>&nbsp;&nbsp;&nbsp;
+              <svg style="cursor: pointer;color:red" (click)="delete(list.id)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/><title>Delete Item </title>
+              </svg>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator
+          [pageSize]="5"
+          #paginator [pageSizeOptions]="[5, 7, 10, 15, 20, 50, 100]"
+          showFirstLastButtons
+          aria-label="Select page of users">
+        </mat-paginator>
+        </div>
+
+        <button #btnShow style="display: none;" id="btnShow" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+
+        <div *ngIf="!isShown" id="exampleModal" #myModal class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{ title }}</h5>
+                        <button #btnClose id="btnClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Name</label>
+                            <input type="text" [(ngModel)]="name" class="form-control" id="exampleFormControlInput1" placeholder="enter name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Personal Info</label>
+                            <textarea class="form-control" [(ngModel)]="personalInfo" placeholder="enter some personal info" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Email</label>
+                            <input class="form-control" [(ngModel)]="email" placeholder="enter email" id="exampleFormControlTextarea1" rows="3" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" (click)="clearEdit()" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" (click)="addUser()" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="version-info">Current build: 13.1.1</span>
+      </div>
+      <div class="col-lg-1"></div>
+  </div>
+</div>
+

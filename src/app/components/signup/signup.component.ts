@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service'
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -14,7 +14,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class SignupComponent implements OnInit {
 
     isProgressVisible: boolean;
-    signupForm: FormGroup;
+    signupForm: UntypedFormGroup;
     firebaseErrorMessage: string;
     user: Observable<any>;
 
@@ -34,10 +34,10 @@ export class SignupComponent implements OnInit {
             this.router.navigate(['/dashboard']);
         }
 
-        this.signupForm = new FormGroup({
-            'displayName': new FormControl('', Validators.required),
-            'email': new FormControl('', [Validators.required, Validators.email]),
-            'password': new FormControl('', Validators.required)
+        this.signupForm = new UntypedFormGroup({
+            'displayName': new UntypedFormControl('', Validators.required),
+            'email': new UntypedFormControl('', [Validators.required, Validators.email]),
+            'password': new UntypedFormControl('', Validators.required)
         });
 
         this.afAuth.authState.subscribe(user => {

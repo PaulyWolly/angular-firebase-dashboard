@@ -12,11 +12,11 @@ import "firebase/firestore"
  * @title Table with pagination
  */
 @Component({
-  selector: 'app-newsletter',
-  styleUrls: ['newsletter.component.css'],
-  templateUrl: 'newsletter.component.html',
+  selector: 'table-pagination-example',
+  styleUrls: ['table-pagination-example.css'],
+  templateUrl: 'table-pagination-example.html',
 })
-export class NewsletterComponent implements OnInit {
+export class TablePaginationExample implements OnInit {
 
   isShown: boolean = false;
 
@@ -57,12 +57,12 @@ export class NewsletterComponent implements OnInit {
 
   ngOnInit() {
     this.getAll();
-    this.dataSource.sort = this.sort;
+    // this.dataSource.sort = this.sort;
 
-    const sortState: Sort = {active: 'timeStamp', direction: 'desc'};
-    this.sort.active = sortState.active;
-    this.sort.direction = sortState.direction;
-    this.sort.sortChange.emit(sortState);
+    // const sortState: Sort = {active: 'timeStamp', direction: 'desc'};
+    // this.sort.active = sortState.active;
+    // this.sort.direction = sortState.direction;
+    // this.sort.sortChange.emit(sortState);
   }
 
   openDialog(arg: string | undefined){

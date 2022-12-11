@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Component, ChangeDetectorRef, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { ValidatePassword } from "../../must-match/validate-password";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -15,7 +15,7 @@ import { stringify } from 'querystring';
 
 export class ReactiveFormsDemoComponent implements OnInit {
 
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
 
   submitted = false;
 
@@ -35,7 +35,7 @@ export class ReactiveFormsDemoComponent implements OnInit {
     public afAuth: AngularFireAuth,
     public firestore: AngularFirestore,
     public router: Router,
-    public fb: FormBuilder,
+    public fb: UntypedFormBuilder,
     private cd: ChangeDetectorRef
     ) { }
 
