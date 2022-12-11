@@ -1,0 +1,116 @@
+body {
+  overflow-x: hidden;
+}
+table {
+  width: 99%;
+}
+
+.newsletter-container {
+  overflow-x: hidden;
+  width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  overflow-x: hidden;
+  width: 99%;
+}
+.m-100{
+  margin: 100px;
+}
+
+.nav-icons {
+  height: 30px;
+}
+
+.addUser-icon {
+  position: relative;
+  /* bottom: 10px; */
+  top: 15px;
+  color: green;
+  /* padding-top: 20px; */
+  padding-left: 24px;
+  /* pointer-events: none; */
+}
+
+.goBack-icon {
+  float: right;
+  cursor: pointer;
+  position: relative;
+  bottom: 20px;
+  right: 24px;
+  /* pointer-events: none; */
+}
+
+.goBack-link {
+  height: 24px;
+  width: 24px;
+}
+
+.main{
+  padding: 1.5rem;
+  border: 1px solid #dee2e6;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  margin-top: 60px;
+}
+
+.action svg{
+  margin: 0px 5px 0px 5px;
+}
+
+.header-label-style {
+  color: blue;
+  font-size: 16px;
+}
+
+.version-info {
+  float:right;
+  font-size: 10px;
+}
+
+.cloud-plus-icon {
+  height: 32px;
+  width: 32px;
+  color: green;
+}
+
+.modal-title {
+  font-size: 20px;
+  position: relative;
+  top: 8px;
+}
+
+.modal-header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-bottom: 1px solid #dee2e6;
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
+  background-color: cadetblue;
+  color: white;
+}
+
+.btn-style {
+  /* position: relative;
+  height: 5px;
+  width: 5px; */
+  border: none
+}
+
+.edit-icons {
+  position: relative;
+  float: right;
+  border-bottom: none;
+  top: 14px
+}
+
+
+.main-container {
+  padding-top: 85px;
+}
+
