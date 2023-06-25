@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   showMore: boolean = false;
 
   email = 'pwelby@gmail.com';
-  website = 'https://www.i-am-paulwelby.com';
+  website = 'https://i-am-paul.netlify.app';
   phone = '619-629-3770';
 
   constructor(
