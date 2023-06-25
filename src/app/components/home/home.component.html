@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -22,7 +23,7 @@
                             <mat-icon class="checkCircle">check_circle</mat-icon>
 
                             <span style="position:relative; bottom: 18px; margin-left:10px; width: 1000px">Welcome:
-                                <span *ngIf="(user | async)">{{ (user | async)?.displayName }}</span>
+                                <span *ngIf="(user$ | async)">{{ (user$ | async)?.displayName }}</span>
                             </span>
 
                         </mat-card>
@@ -81,11 +82,12 @@
 
             </ul>
         </div>
-    </div>
+  </div>
 </nav>
 
+
 <p></p>
-<section>
+<section class="section-style">
     <button class="spaceBetween" mat-raised-button color="primary" routerLink="/login">
         <mat-icon>login</mat-icon>
         <span> Login</span>
@@ -113,7 +115,7 @@
 
 <br>
 
-<section>
+<section class="section-style">
     <button class="spaceBetween" mat-raised-button color="primary" routerLink="/dashboard">
         <mat-icon>dashboard</mat-icon>
         <span> Dashboard</span>

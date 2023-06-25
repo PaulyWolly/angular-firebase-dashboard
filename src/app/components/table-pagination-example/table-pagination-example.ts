@@ -222,8 +222,3 @@ export class TablePaginationExample implements OnInit {
 //   {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
 //   {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
 // ];
-
-
-/**  Copyright 2021 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at https://angular.io/license */

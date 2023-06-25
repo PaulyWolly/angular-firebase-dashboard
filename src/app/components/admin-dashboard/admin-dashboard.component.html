@@ -84,17 +84,17 @@
     </div>
 </nav>
 
-<section class="pagePosition">
+<section class="pagePosition section-style">
     <button mat-raised-button color="primary" routerLink="/home">
         <mat-icon>home</mat-icon>
         <span> Home</span>
     </button>
 
 
-    <div *ngIf="(user | async)?.accountType == 'admin'; else notAdmin">
-        hello admin!
+    <div style="margin-top: 20px;" *ngIf="(user | async)?.accountType == 'admin'; else notAdmin">
+        Hello admin!
         <br>
-        this is a simple test for admin status. a more rigorous test is to edit the auth.guard.ts file :)
+        This is a simple test for admin status. a more rigorous test is to edit the auth.guard.ts file :)
     </div>
 
     <ng-template #notAdmin>

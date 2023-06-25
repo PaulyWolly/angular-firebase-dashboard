@@ -18,7 +18,7 @@ html, body { height: 100%; }
 
 body {
     margin: 20px;
-    padding: 10px;
+    /* padding: 10px; */
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
@@ -348,8 +348,8 @@ button#btnClose.btn-close {
   color: red !important;
   position: relative;
   float: right;
-  right: 20px;
-  bottom: 40px;
+  right: 10px;
+  /* bottom: 40px; */
 }
 
 .dialog-header {
@@ -396,3 +396,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.navbar {
+  width: 100% !important;
+
+}
+
+.section-style {
+  padding-left: 10px;
+}
+
+.bg-light {
+  background-color: rgb(244, 237, 230) !important;
+  padding-left: 10px;
+}

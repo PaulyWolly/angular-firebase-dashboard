@@ -9,7 +9,7 @@ export class TemperatureConverterPipe implements PipeTransform {
 
         if(value && !isNaN(value)) {
           if (unit === 'C') {
-              var temperature = (value - 32) /1.8 ;
+              var temperature = (value - 32) / 1.8 ;
               return temperature.toFixed(2);
           } else if (unit === 'F'){
               var temperature = (value * 1.8 ) + 32

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     isProgressVisible: boolean;
     loginForm: UntypedFormGroup;
     firebaseErrorMessage: string;
-    user: Observable<any>;
+    user$: Observable<any>;
 
     constructor(
       private authService: AuthService,
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
                 let emailLower = user.email.toLowerCase();
                 // let name = user.displayName;
 
-                this.user = this.firestore.collection('users').doc(emailLower).valueChanges();
+                this.user$ = this.firestore.collection('users').doc(emailLower).valueChanges();
                 // this.user = this.firestore.collection('users').doc(name).valueChanges();
 
             }
@@ -68,16 +68,16 @@ export class LoginComponent implements OnInit {
           return;
 
       this.authService.loginUser(this.loginForm.value.email, this.loginForm.value.password)
-      .then((result) => {
-        this.isProgressVisible = false;                     // no matter what, when the auth service returns, we hide the progress indicator
-        if (result == null) {                               // null is success, false means there was an error
-            console.log('logging in...');
-            this.router.navigate(['/dashboard']);                // when the user is logged in, navigate them to dashboard
-        }
-        else if (result.isValid == false) {
-            console.log('login error', result);
-            this.firebaseErrorMessage = result.message;
-        }
-      });
+        .then((result) => {
+          this.isProgressVisible = false;                     // no matter what, when the auth service returns, we hide the progress indicator
+          if (result == null) {                               // null is success, false means there was an error
+              console.log('logging in...');
+              this.router.navigate(['/dashboard']); // when the user is logged in, navigate them to dashboard
+          }
+          else if (result.isValid == false) {
+              console.log('login error', result);
+              this.firebaseErrorMessage = result.message;
+          }
+        });
     }
 }

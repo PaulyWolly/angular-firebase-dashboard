@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-    user: Observable<any>;
+    user$: Observable<any>;
     showMore: Boolean = false;
 
     constructor(
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 
             if (user) {
                 let emailLower = user.email.toLowerCase();
-                this.user = this.firestore.collection('users').doc(emailLower).valueChanges();
+                this.user$ = this.firestore.collection('users').doc(emailLower).valueChanges();
             }
         });
 
