@@ -4,7 +4,6 @@ body {
 
 .spaceBetween {
     margin-right: 10px;
-
 }
 
 .nav-link.dropdown-toggle {
@@ -32,10 +31,14 @@ body {
 
 .newsletter-checkbox {
   position: absolute;
-  top: 142px;
+  top: 125px;
   left: 530px;
 }
 
+.buttons-align {
+  display:inline-flex;
+  margin-bottom: 10px;
+}
 
 
 
